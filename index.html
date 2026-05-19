@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumière Intérieure — Tarot, Spiritualité & Bien-être</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+  /*logo */
+  
+  .logo {
+    width: 200px;
+    animation: breathe 4s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes breathe {
+    0% { transform: scale(1); filter: drop-shadow(0 0 6px #d4af37); }
+    50% { transform: scale(1.08); filter: drop-shadow(0 0 20px #f7e9b5); }
+    100% { transform: scale(1); filter: drop-shadow(0 0 6px #d4af37); }
+}
+/*autres*/
+  :root {
+    --or: #C9A96E;
+    --or-clair: #E8D5B0;
+    --violet: #4A3060;
+    --violet-clair: #7B5EA7;
+    --nuit: #0D0A1A;
+    --nuit-mid: #1A1428;
+    --creme: #FAF6EE;
+    --text-doux: #8B7FA8;
+    --blanc: #FFFFFF;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; background: var(--nuit); color: var(--creme); overflow-x: hidden; }
+
+  /* ===== ÉTOILES ===== */
+  .stars { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
+  .star { position: absolute; background: white; border-radius: 50%; animation: twinkle var(--d, 3s) ease-in-out infinite alternate; opacity: 0; }
+  @keyframes twinkle { 0% { opacity: 0; transform: scale(0.8); } 100% { opacity: var(--o, 0.7); transform: scale(1.2); } }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(13,10,26,0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,169,110,0.2);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between; height: 70px;
+  }
+  .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--or); letter-spacing: 0.1em; }
+  .logo span { font-style: italic; color: var(--or-clair); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: var(--creme); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.8; transition: opacity 0.2s, color 0.2s; }
+  .nav-links a:hover { opacity: 1; color: var(--or); }
+  .nav-cta { background: transparent; border: 1px solid var(--or); color: var(--or); padding: 8px 20px; border-radius: 2px; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: all 0.3s; }
+  .nav-cta:hover { background: var(--or); color: var(--nuit); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
+  .hamburger span { display: block; width: 24px; height: 1.5px; background: var(--or); transition: all 0.3s; }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; text-align: center; padding: 100px 5% 60px;
+    background: radial-gradient(ellipse at 50% 40%, rgba(74,48,96,0.4) 0%, transparent 70%);
+  }
+  .hero-lune { font-size: 3rem; margin-bottom: 1rem; animation: float 4s ease-in-out infinite; display: block; }
+  @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+  .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 300; line-height: 1.15; color: var(--creme); margin-bottom: 0.5rem; }
+  .hero h1 em { font-style: italic; color: var(--or); }
+  .hero-sub { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text-doux); font-style: italic; margin-bottom: 2.5rem; letter-spacing: 0.05em; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .btn-or { background: var(--or); color: var(--nuit); padding: 14px 36px; border-radius: 2px; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; font-weight: 500; transition: all 0.3s; border: none; cursor: pointer; }
+  .btn-or:hover { background: var(--or-clair); transform: translateY(-2px); }
+  .btn-ghost { background: transparent; color: var(--or); border: 1px solid var(--or); padding: 14px 36px; border-radius: 2px; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; font-weight: 400; transition: all 0.3s; }
+  .btn-ghost:hover { background: rgba(201,169,110,0.1); transform: translateY(-2px); }
+  .scroll-hint { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 6px; opacity: 0.5; }
+  .scroll-hint span { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--or); }
+  .scroll-arrow { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--or), transparent); animation: scrollDown 2s ease-in-out infinite; }
+  @keyframes scrollDown { 0% { opacity: 0; transform: scaleY(0); transform-origin: top; } 50% { opacity: 1; } 100% { opacity: 0; transform: scaleY(1); transform-origin: top; } }
+
+  /* ===== SECTIONS COMMUNES ===== */
+  section { position: relative; z-index: 1; padding: 80px 5%; }
+  .section-header { text-align: center; margin-bottom: 60px; }
+  .section-tag { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--or); margin-bottom: 1rem; display: block; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: var(--creme); }
+  .section-title em { font-style: italic; color: var(--or); }
+  .divider { width: 60px; height: 1px; background: var(--or); margin: 1.5rem auto; opacity: 0.5; }
+  .section-desc { color: var(--text-doux); font-size: 1rem; line-height: 1.8; max-width: 600px; margin: 0 auto; }
+
+  /* ===== CARTE DU JOUR ===== */
+  #carte { background: linear-gradient(180deg, var(--nuit) 0%, var(--nuit-mid) 100%); }
+  .carte-container { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: center; }
+  .carte-visuel { position: relative; display: flex; justify-content: center; }
+  .card-frame {
+    width: 180px; height: 300px; border: 1px solid rgba(201,169,110,0.4);
+    background: linear-gradient(135deg, var(--nuit-mid), rgba(74,48,96,0.5));
+    border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 12px; font-family: 'Cormorant Garamond', serif; cursor: pointer;
+    transition: transform 0.4s, border-color 0.4s; position: relative; overflow: hidden;
+  }
+  .card-frame::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(201,169,110,0.1), transparent); }
+  .card-frame:hover { transform: translateY(-6px) rotate(1deg); border-color: var(--or); }
+  .card-frame .card-symbol { font-size: 3rem; }
+  .card-frame .card-name { font-size: 1rem; color: var(--or-clair); letter-spacing: 0.1em; text-align: center; padding: 0 10px; }
+  .card-frame .card-num { font-size: 0.7rem; color: var(--text-doux); letter-spacing: 0.2em; text-transform: uppercase; }
+  .carte-infos h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; color: var(--creme); margin-bottom: 0.5rem; }
+  .carte-infos .date-tag { color: var(--or); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem; display: block; }
+  .carte-infos p { color: var(--text-doux); line-height: 1.9; margin-bottom: 1.5rem; font-size: 0.95rem; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2rem; }
+  .keyword { border: 1px solid rgba(201,169,110,0.3); color: var(--or-clair); padding: 4px 14px; border-radius: 20px; font-size: 0.75rem; letter-spacing: 0.1em; }
+  .abonnement-box {
+    background: rgba(74,48,96,0.2); border: 1px solid rgba(201,169,110,0.2);
+    border-radius: 4px; padding: 20px; margin-top: 1rem;
+  }
+  .abonnement-box p { font-size: 0.85rem; color: var(--text-doux); margin-bottom: 0; line-height: 1.6; }
+  .abonnement-box strong { color: var(--or-clair); }
+  .email-form { display: flex; gap: 8px; margin-top: 12px; }
+  .email-form input { flex: 1; background: rgba(255,255,255,0.05); border: 1px solid rgba(201,169,110,0.3); color: var(--creme); padding: 10px 14px; border-radius: 2px; font-size: 0.85rem; font-family: 'Jost', sans-serif; outline: none; }
+  .email-form input::placeholder { color: var(--text-doux); }
+  .email-form input:focus { border-color: var(--or); }
+  .email-form button { background: var(--or); color: var(--nuit); border: none; padding: 10px 20px; border-radius: 2px; font-size: 0.8rem; letter-spacing: 0.1em; cursor: pointer; font-family: 'Jost', sans-serif; white-space: nowrap; }
+
+  /* ===== CATÉGORIES ===== */
+  #categories { background: var(--nuit); }
+  .cats-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+  .cat-card {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(201,169,110,0.15);
+    border-radius: 4px; padding: 30px 24px; cursor: pointer;
+    transition: all 0.3s; position: relative; overflow: hidden;
+  }
+  .cat-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--or); transition: width 0.4s; }
+  .cat-card:hover::after { width: 100%; }
+  .cat-card:hover { background: rgba(74,48,96,0.2); border-color: rgba(201,169,110,0.4); transform: translateY(-3px); }
+  .cat-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .cat-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; color: var(--creme); margin-bottom: 0.5rem; }
+  .cat-card p { font-size: 0.85rem; color: var(--text-doux); line-height: 1.7; }
+  .cat-items { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 6px; }
+  .cat-item { font-size: 0.7rem; color: var(--or); letter-spacing: 0.08em; opacity: 0.8; }
+  .cat-item::after { content: ' ·'; }
+  .cat-item:last-child::after { content: ''; }
+
+  /* ===== PDF GRATUITS ===== */
+  #pdf { background: linear-gradient(180deg, var(--nuit) 0%, rgba(74,48,96,0.15) 50%, var(--nuit) 100%); }
+  .pdf-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .pdf-card {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(201,169,110,0.2);
+    border-radius: 4px; padding: 28px 24px; position: relative;
+    transition: all 0.3s;
+  }
+  .pdf-card:hover { transform: translateY(-4px); border-color: rgba(201,169,110,0.5); background: rgba(74,48,96,0.15); }
+  .pdf-badge { position: absolute; top: -1px; right: 20px; background: var(--or); color: var(--nuit); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 4px 12px; font-weight: 500; }
+  .pdf-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+  .pdf-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--creme); margin-bottom: 0.5rem; }
+  .pdf-card p { font-size: 0.82rem; color: var(--text-doux); line-height: 1.7; margin-bottom: 1.2rem; }
+  .pdf-dl { display: inline-flex; align-items: center; gap: 6px; color: var(--or); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(201,169,110,0.3); padding-bottom: 2px; transition: border-color 0.2s; }
+  .pdf-dl:hover { border-color: var(--or); }
+
+  /* ===== BOUTIQUE ===== */
+  #boutique { background: var(--nuit-mid); }
+  .boutique-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+  .boutique-text h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 300; color: var(--creme); margin-bottom: 1rem; }
+  .boutique-text h2 em { font-style: italic; color: var(--or); }
+  .boutique-text p { color: var(--text-doux); line-height: 1.9; font-size: 0.95rem; margin-bottom: 1.5rem; }
+  .boutique-items { list-style: none; margin-bottom: 2rem; }
+  .boutique-items li { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 12px; font-size: 0.9rem; color: var(--text-doux); }
+  .boutique-items li::before { content: '✦'; color: var(--or); font-size: 0.6rem; flex-shrink: 0; }
+  .boutique-visual { display: flex; justify-content: center; }
+  .boutique-frame {
+    width: 260px; height: 320px;
+    background: linear-gradient(135deg, rgba(74,48,96,0.4), rgba(13,10,26,0.8));
+    border: 1px solid rgba(201,169,110,0.3); border-radius: 8px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 16px; text-align: center; padding: 30px; cursor: pointer;
+    transition: all 0.3s; text-decoration: none;
+  }
+  .boutique-frame:hover { border-color: var(--or); transform: translateY(-6px); background: linear-gradient(135deg, rgba(74,48,96,0.6), rgba(13,10,26,0.9)); }
+  .boutique-frame .b-icon { font-size: 3.5rem; }
+  .boutique-frame .b-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--or-clair); }
+  .boutique-frame .b-sub { font-size: 0.75rem; color: var(--text-doux); letter-spacing: 0.1em; line-height: 1.6; }
+  .boutique-frame .b-btn { background: var(--or); color: var(--nuit); padding: 10px 24px; border-radius: 2px; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 8px; font-weight: 500; }
+
+  /* ===== RITUELS ===== */
+  #rituels { background: var(--nuit); }
+  .rituels-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+  .rituel-card {
+    text-align: center; padding: 40px 20px;
+    background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 4px; transition: all 0.3s;
+  }
+  .rituel-card:hover { background: rgba(74,48,96,0.15); border-color: rgba(201,169,110,0.3); transform: translateY(-4px); }
+  .rituel-card .r-icon { font-size: 2.5rem; display: block; margin-bottom: 1rem; }
+  .rituel-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--creme); margin-bottom: 0.5rem; }
+  .rituel-card p { font-size: 0.82rem; color: var(--text-doux); line-height: 1.7; }
+
+  /* ===== CARTES SPIRITUELLES ===== */
+  #cartes { background: linear-gradient(180deg, var(--nuit) 0%, var(--nuit-mid) 100%); }
+  .cartes-content { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr; gap: 60px; align-items: start; }
+  .cartes-text p { color: var(--text-doux); line-height: 1.9; font-size: 0.95rem; margin-bottom: 1.5rem; }
+  .cartes-list { list-style: none; }
+  .cartes-list li { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 12px; color: var(--creme); font-size: 0.9rem; }
+  .cartes-list li span { color: var(--or); font-size: 1.2rem; }
+  .cartes-side { position: relative; }
+  .moon-calendar {
+    background: rgba(74,48,96,0.2); border: 1px solid rgba(201,169,110,0.2);
+    border-radius: 4px; padding: 24px; text-align: center;
+  }
+  .moon-calendar .mc-title { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--or-clair); margin-bottom: 1rem; letter-spacing: 0.1em; }
+  .moon-phase { font-size: 3rem; margin-bottom: 0.5rem; display: block; }
+  .moon-calendar p { font-size: 0.82rem; color: var(--text-doux); line-height: 1.7; }
+
+  /* ===== CHAKRAS ===== */
+  #chakras { background: var(--nuit); }
+  .chakras-grid { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+  .chakra-row {
+    display: flex; align-items: center; gap: 16px; padding: 16px 20px;
+    background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 4px; transition: all 0.3s; cursor: pointer;
+  }
+  .chakra-row:hover { background: rgba(255,255,255,0.05); border-color: rgba(201,169,110,0.2); }
+  .chakra-dot { width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0; }
+  .chakra-info { flex: 1; }
+  .chakra-info .c-name { font-size: 0.9rem; color: var(--creme); font-weight: 500; }
+  .chakra-info .c-desc { font-size: 0.8rem; color: var(--text-doux); margin-top: 2px; }
+  .chakra-tag { font-size: 0.7rem; color: var(--or); letter-spacing: 0.1em; }
+
+  /* ===== NEWSLETTER ===== */
+  #newsletter { background: linear-gradient(135deg, rgba(74,48,96,0.4), rgba(13,10,26,0.95)); border-top: 1px solid rgba(201,169,110,0.15); border-bottom: 1px solid rgba(201,169,110,0.15); }
+  .newsletter-inner { max-width: 600px; margin: 0 auto; text-align: center; }
+  .newsletter-inner h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; color: var(--creme); margin-bottom: 0.5rem; }
+  .newsletter-inner h2 em { font-style: italic; color: var(--or); }
+  .newsletter-inner p { color: var(--text-doux); margin-bottom: 2rem; line-height: 1.8; }
+  .nl-form { display: flex; gap: 10px; max-width: 420px; margin: 0 auto; }
+  .nl-form input { flex: 1; background: rgba(255,255,255,0.05); border: 1px solid rgba(201,169,110,0.3); color: var(--creme); padding: 14px 18px; border-radius: 2px; font-size: 0.9rem; font-family: 'Jost', sans-serif; outline: none; }
+  .nl-form input:focus { border-color: var(--or); }
+  .nl-form button { background: var(--or); color: var(--nuit); border: none; padding: 14px 24px; border-radius: 2px; font-size: 0.82rem; letter-spacing: 0.1em; cursor: pointer; font-family: 'Jost', sans-serif; white-space: nowrap; font-weight: 500; }
+  .nl-rgpd { font-size: 0.72rem; color: var(--text-doux); margin-top: 1rem; opacity: 0.7; }
+
+  /* ===== FOOTER ===== */
+  footer { background: rgba(5,3,10,0.98); border-top: 1px solid rgba(201,169,110,0.1); padding: 60px 5% 30px; }
+  .footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px; }
+  .footer-brand .logo-f { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--or); margin-bottom: 1rem; display: block; }
+  .footer-brand p { font-size: 0.85rem; color: var(--text-doux); line-height: 1.8; margin-bottom: 1.5rem; max-width: 280px; }
+  .socials { display: flex; gap: 12px; }
+  .social-btn {
+    width: 38px; height: 38px; border: 1px solid rgba(201,169,110,0.3); border-radius: 2px;
+    display: flex; align-items: center; justify-content: center; color: var(--or);
+    text-decoration: none; font-size: 1rem; transition: all 0.3s;
+  }
+  .social-btn:hover { background: var(--or); color: var(--nuit); border-color: var(--or); }
+  .footer-col h4 { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--creme); letter-spacing: 0.05em; margin-bottom: 1.2rem; font-weight: 400; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 0.7rem; }
+  .footer-col ul li a { color: var(--text-doux); text-decoration: none; font-size: 0.84rem; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: var(--or); }
+  .footer-contact { color: var(--text-doux); font-size: 0.84rem; line-height: 1.9; }
+  .footer-contact a { color: var(--or-clair); text-decoration: none; }
+  .footer-contact a:hover { color: var(--or); }
+  .footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: gap; gap: 12px; }
+  .footer-bottom p { font-size: 0.75rem; color: var(--text-doux); opacity: 0.6; }
+  .footer-legal { display: flex; gap: 20px; }
+  .footer-legal a { font-size: 0.75rem; color: var(--text-doux); text-decoration: none; opacity: 0.6; transition: opacity 0.2s; }
+  .footer-legal a:hover { opacity: 1; color: var(--or); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 70px; left: 0; width: 100%; background: rgba(13,10,26,0.98); padding: 20px 5%; gap: 1rem; border-bottom: 1px solid rgba(201,169,110,0.2); }
+    .hamburger { display: flex; }
+    .carte-container { grid-template-columns: 1fr; }
+    .boutique-inner { grid-template-columns: 1fr; }
+    .cartes-content { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .footer-brand { grid-column: 1/-1; }
+    .nl-form { flex-direction: column; }
+  }
+  @media (max-width: 480px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .hero-btns { flex-direction: column; align-items: center; }
+  }
+
+  /* Animations d'entrée */
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- Étoiles -->
+<div class="stars" id="stars"></div>
+
+<!-- Navigation -->
+<nav>
+<a href="index.html" class="logo">🌙 <span>Lumière</span> Intérieurep</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#carte">Carte du Jour</a></li>
+    <li><a href="#cartes">Tarot</a></li>
+    <li><a href="#rituels">Rituels</a></li>
+    <li><a href="#chakras">Chakras</a></li>
+    <li><a href="#pdf">PDF Gratuits</a></li>
+    <li><a href="#boutique">Boutique</a></li>
+    <li><a href="#newsletter">Contact</a></li>
+  </ul>
+  <a href="https://ko-fi.com/lumiereinterieurep" target="_blank" class="nav-cta">Boutique ✦</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-lune">🌙</span>
+  <h1>Éveillez votre<br><em>Lumière Intérieure</em></h1>
+  <p class="hero-sub">Tarot · Rituels · Chakras · Pratiques énergétiques</p>
+  <div class="hero-btns">
+    <a href="#carte" class="btn-or">Carte du Jour</a>
+    <a href="#boutique" class="btn-ghost">Découvrir la Boutique</a>
+  </div>
+  <div class="scroll-hint">
+    <span>Explorer</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- CARTE DU JOUR -->
+<section id="carte">
+  <div class="section-header fade-in">
+    <span class="section-tag">✦ Chaque matin ✦</span>
+    <h2 class="section-title">La Carte du <em>Jour</em></h2>
+    <div class="divider"></div>
+    <p class="section-desc">Chaque jour, une carte tirée pour vous guider, vous inspirer et vous connecter à votre énergie du moment.</p>
+  </div>
+  <div class="carte-container fade-in">
+    <div class="carte-visuel">
+      <div class="card-frame">
+        <span class="card-symbol">🌟</span>
+        <span class="card-name">L'Étoile</span>
+        <span class="card-num">XVII · Arcane Majeur</span>
+      </div>
+    </div>
+    <div class="carte-infos">
+      <span class="date-tag">✦ Carte du jour · 7 mai 2026</span>
+      <h3>L'Étoile — Espoir & Renouveau</h3>
+      <p>L'Étoile vous invite aujourd'hui à vous reconnecter à vos rêves les plus profonds. C'est un message d'espoir, de guérison et de confiance en l'avenir. Laissez la lumière intérieure vous guider vers ce qui fait vibrer votre âme.</p>
+      <div class="keywords">
+        <span class="keyword">Espoir</span>
+        <span class="keyword">Renouveau</span>
+        <span class="keyword">Confiance</span>
+        <span class="keyword">Inspiration</span>
+        <span class="keyword">Clarté</span>
+      </div>
+      <div class="abonnement-box">
+        <p>✉️ <strong>Recevez la carte du jour par email</strong> chaque matin directement dans votre boîte.<br>Un tirage + sa signification pour commencer la journée avec intention.</p>
+        <div class="email-form">
+          <input type="email" placeholder="Votre adresse email…" />
+          <button type="button">S'abonner</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATÉGORIES -->
+<section id="categories">
+  <div class="section-header fade-in">
+    <span class="section-tag">✦ Explorer ✦</span>
+    <h2 class="section-title">Nos <em>Univers</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="cats-grid">
+    <a href="histoire-tarot.html" class="cat-card fade-in" style="text-decoration:none">
+      <span class="cat-icon">🔮</span>
+      <h3>Tarot & Oracles</h3>
+      <p>Histoire du tarot, comment tirer les cartes, significations des arcanes majeurs et mineurs.</p>
+      <div class="cat-items">
+        <span class="cat-item">Arcanes Majeurs</span>
+        <span class="cat-item">Comment tirer</span>
+        <span class="cat-item">Histoire</span>
+      </div>
+    </a>
+    <a href="rituels-lunaires.html" class="cat-card fade-in" style="text-decoration:none">
+      <span class="cat-icon">🌙</span>
+      <h3>Rituels Lunaires</h3>
+      <p>Travaillez avec les cycles de la lune. Rituels de pleine lune, nouvelle lune, et calendrier lunaire.</p>
+      <div class="cat-items">
+        <span class="cat-item">Pleine Lune</span>
+        <span class="cat-item">Nouvelle Lune</span>
+        <span class="cat-item">Calendrier</span>
+      </div>
+    </a>
+    <a href="chakras.html" class="cat-card fade-in" style="text-decoration:none">
+      <span class="cat-icon">✨</span>
+      <h3>Chakras</h3>
+      <p>Guide complet des 7 chakras, purification, activation et rééquilibrage énergétique.</p>
+      <div class="cat-items">
+        <span class="cat-item">Les 7 Chakras</span>
+        <span class="cat-item">Purification</span>
+        <span class="cat-item">Rééquilibrage</span>
+      </div>
+    </a>
+    <a href="rituels-energetiques.html" class="cat-card fade-in" style="text-decoration:none">
+      <span class="cat-icon">🕯️</span>
+      <h3>Magie & Bougies</h3>
+      <p>L'art de la magie des bougies : couleurs, intentions, rituels et pratiques énergétiques.</p>
+      <div class="cat-items">
+        <span class="cat-item">Couleurs</span>
+        <span class="cat-item">Intentions</span>
+        <span class="cat-item">Rituels</span>
+      </div>
+    </a>
+    <a href="cristaux.html" class="cat-card fade-in" style="text-decoration:none">
+      <span class="cat-icon">💎</span>
+      <h3>Cristaux & Pierres</h3>
+      <p>Propriétés des pierres, comment les choisir, les purifier et les recharger sous la lune.</p>
+      <div class="cat-items">
+        <span class="cat-item">Propriétés</span>
+        <span class="cat-item">Purification</span>
+        <span class="cat-item">Recharge</span>
+      </div>
+    </a>
+    <a href="numerologie.html" class="cat-card fade-in" style="text-decoration:none">
+      <span class="cat-icon">⭐</span>
+      <h3>Numérologie & Astro</h3>
+      <p>Découvrez votre chiffre de vie, compatibilités astrologiques et thème natal.</p>
+      <div class="cat-items">
+        <span class="cat-item">Chiffre de vie</span>
+        <span class="cat-item">Astrologie</span>
+        <span class="cat-item">Thème natal</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- CARTES SPIRITUELLES -->
+<section id="cartes">
+  <div class="section-header fade-in">
+    <span class="section-tag">✦ Connaissance ✦</span>
+    <h2 class="section-title">Cartes <em>Spirituelles</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="cartes-content fade-in">
+    <div class="cartes-text">
+      <p>Le tarot est bien plus qu'un simple jeu de cartes — c'est un outil de connaissance de soi, de guidance et de connexion à votre intuition profonde. Chaque carte raconte une histoire, porte une énergie et vous invite à explorer les différentes facettes de votre vie.</p>
+      <p>Que vous soyez débutant(e) ou pratiquant(e) expérimenté(e), vous trouverez ici des ressources pour approfondir votre pratique du tarot et des oracles.</p>
+      <ul class="cartes-list">
+        <li><span>✦</span> <a href="histoire-tarot.html" style="color:var(--creme);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--or)'" onmouseout="this.style.color='var(--creme)'">Histoire et origines du Tarot</a></li>
+        <li><span>✦</span> <a href="arcanes-majeurs.html" style="color:var(--creme);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--or)'" onmouseout="this.style.color='var(--creme)'">Les 22 Arcanes Majeurs expliqués</a></li>
+        <li><span>✦</span> Les 56 Arcanes Mineurs</li>
+        <li><span>✦</span> <a href="comment-tirer-cartes.html" style="color:var(--creme);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--or)'" onmouseout="this.style.color='var(--creme)'">Comment tirer les cartes (méthodes)</a></li>
+        <li><span>✦</span> Différences tarot / oracle</li>
+        <li><span>✦</span> <a href="lumiere-interieure.html#pdf" style="color:var(--creme);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--or)'" onmouseout="this.style.color='var(--creme)'">PDF oracle à télécharger</a></li>
+      </ul>
+    </div>
+    <div class="cartes-side">
+      <div class="moon-calendar">
+        <p class="mc-title">🌙 Calendrier Lunaire</p>
+        <span class="moon-phase">🌕</span>
+        <p style="color: var(--or-clair); font-size: 0.95rem; margin-bottom: 0.5rem;">Pleine Lune</p>
+        <p>Période idéale pour les tirages de clarification, les rituels de gratitude et la recharge de vos cristaux.</p>
+      </div>
+      <div style="margin-top: 16px; background: rgba(255,255,255,0.02); border: 1px solid rgba(201,169,110,0.15); border-radius: 4px; padding: 20px; text-align: center;">
+        <p style="font-size: 0.8rem; color: var(--text-doux); line-height: 1.8;">Suivez le calendrier lunaire pour synchroniser votre pratique du tarot avec les énergies de la lune 🌙</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RITUELS -->
+<section id="rituels">
+  <div class="section-header fade-in">
+    <span class="section-tag">✦ Pratiques ✦</span>
+    <h2 class="section-title">Rituels & <em>Énergétique</em></h2>
+    <div class="divider"></div>
+    <p class="section-desc">Des pratiques simples et puissantes pour vous reconnecter à vous-même et à l'énergie de l'univers.</p>
+  </div>
+  <div class="rituels-grid fade-in">
+    <a href="rituels-energetiques.html#rituel-lunaire" class="rituel-card" style="text-decoration:none">
+      <span class="r-icon">🌕</span>
+      <h3>Rituel Lunaire</h3>
+      <p>Travaillez avec les phases de la lune pour manifester, lâcher prise et vous renouveler en profondeur.</p>
+    </a>
+    <a href="rituels-energetiques.html#ramification" class="rituel-card" style="text-decoration:none">
+      <span class="r-icon">🌿</span>
+      <h3>Ramification</h3>
+      <p>Techniques de purification et de nettoyage énergétique de votre espace et de votre aura.</p>
+    </a>
+    <a href="rituels-energetiques.html#magie-bougie" class="rituel-card" style="text-decoration:none">
+      <span class="r-icon">🕯️</span>
+      <h3>Magie Bougie</h3>
+      <p>Utilisez les bougies comme outil de manifestation : couleurs, huiles essentielles et intentions.</p>
+    </a>
+    <a href="rituels-energetiques.html#purification" class="rituel-card" style="text-decoration:none">
+      <span class="r-icon">💫</span>
+      <h3>Purification & Recharge</h3>
+      <p>Comment nettoyer vos cristaux, votre espace sacré et recharger votre énergie personnelle.</p>
+    </a>
+  </div>
+</section>
+
+<!-- CHAKRAS -->
+<section id="chakras">
+  <div class="section-header fade-in">
+    <span class="section-tag">✦ Énergie ✦</span>
+    <h2 class="section-title">Guide des <em>7 Chakras</em></h2>
+    <div class="divider"></div>
+    <p class="section-desc">Découvrez les centres énergétiques de votre corps et apprenez à les équilibrer.</p>
+  </div>
+  <div class="chakras-grid fade-in">
+    <a href="chakras.html#c1" class="chakra-row" style="text-decoration:none">
+      <div class="chakra-dot" style="background: #FF4444;"></div>
+      <div class="chakra-info"><div class="c-name">Chakra Racine — Muladhara</div><div class="c-desc">Sécurité, enracinement, stabilité</div></div>
+      <span class="chakra-tag">1er</span>
+    </a>
+    <a href="chakras.html#c2" class="chakra-row" style="text-decoration:none">
+      <div class="chakra-dot" style="background: #FF8C00;"></div>
+      <div class="chakra-info"><div class="c-name">Chakra Sacré — Svadhisthana</div><div class="c-desc">Créativité, émotions, sensualité</div></div>
+      <span class="chakra-tag">2ème</span>
+    </a>
+    <a href="chakras.html#c3" class="chakra-row" style="text-decoration:none">
+      <div class="chakra-dot" style="background: #FFD700;"></div>
+      <div class="chakra-info"><div class="c-name">Plexus Solaire — Manipura</div><div class="c-desc">Confiance, volonté, pouvoir personnel</div></div>
+      <span class="chakra-tag">3ème</span>
+    </a>
+    <a href="chakras.html#c4" class="chakra-row" style="text-decoration:none">
+      <div class="chakra-dot" style="background: #32CD32;"></div>
+      <div class="chakra-info"><div class="c-name">Chakra Cœur — Anahata</div><div class="c-desc">Amour, compassion, guérison</div></div>
+      <span class="chakra-tag">4ème</span>
+    </a>
+    <a href="chakras.html#c5" class="chakra-row" style="text-decoration:none">
+      <div class="chakra-dot" style="background: #00BFFF;"></div>
+      <div class="chakra-info"><div class="c-name">Chakra Gorge — Vishuddha</div><div class="c-desc">Communication, vérité, expression</div></div>
+      <span class="chakra-tag">5ème</span>
+    </a>
+    <a href="chakras.html#c6" class="chakra-row" style="text-decoration:none">
+      <div class="chakra-dot" style="background: #6A5ACD;"></div>
+      <div class="chakra-info"><div class="c-name">Troisième Œil — Ajna</div><div class="c-desc">Intuition, clairvoyance, sagesse</div></div>
+      <span class="chakra-tag">6ème</span>
+    </a>
+    <a href="chakras.html#c7" class="chakra-row" style="text-decoration:none">
+      <div class="chakra-dot" style="background: #9B59B6;"></div>
+      <div class="chakra-info"><div class="c-name">Couronne — Sahasrara</div><div class="c-desc">Connexion divine, éveil spirituel</div></div>
+      <span class="chakra-tag">7ème</span>
+    </a>
+  </div>
+  <div style="text-align: center; margin-top: 2.5rem;">
+    <a href="chakras.html" class="btn-ghost">Découvrir le Guide Complet des Chakras →</a>
+  </div>
+</section>
+
+<!-- PDF GRATUITS -->
+<section id="pdf">
+  <div class="section-header fade-in">
+    <span class="section-tag">✦ Ressources offertes ✦</span>
+    <h2 class="section-title">PDF <em>Gratuits</em></h2>
+    <div class="divider"></div>
+    <p class="section-desc">Des guides complets à télécharger gratuitement pour enrichir votre pratique spirituelle.</p>
+  </div>
+  <div class="pdf-grid fade-in">
+    <div class="pdf-card">
+      <span class="pdf-badge">Gratuit</span>
+      <div class="pdf-icon">✨</div>
+      <h3>Guide des 7 Chakras</h3>
+      <p>Propriétés, couleurs, pierres associées, affirmations et exercices pour chaque chakra. Le guide complet pour les débutants.</p>
+      <a href="mailto:pa-signature@outlook.fr?subject=Demande PDF Chakras" class="pdf-dl">↓ Télécharger</a>
+    </div>
+    <div class="pdf-card">
+      <span class="pdf-badge">Gratuit</span>
+      <div class="pdf-icon">🌙</div>
+      <h3>Rituels Lunaires</h3>
+      <p>Guide complet des rituels de pleine lune et nouvelle lune. Étapes, intentions et pratiques énergétiques step by step.</p>
+      <a href="mailto:pa-signature@outlook.fr?subject=Demande PDF Rituels Lunaires" class="pdf-dl">↓ Télécharger</a>
+    </div>
+    <div class="pdf-card">
+      <span class="pdf-badge">Gratuit</span>
+      <div class="pdf-icon">🔮</div>
+      <h3>Tarot pour Débutants</h3>
+      <p>Comment tirer les cartes, les différentes méthodes de tirage, lexique du tarot et significations essentielles.</p>
+      <a href="mailto:pa-signature@outlook.fr?subject=Demande PDF Tarot Débutants" class="pdf-dl">↓ Télécharger</a>
+    </div>
+    <div class="pdf-card">
+      <span class="pdf-badge">Gratuit</span>
+      <div class="pdf-icon">🕯️</div>
+      <h3>Magie des Bougies</h3>
+      <p>Couleurs et leurs significations, rituels selon les intentions, huiles essentielles et correspondances énergétiques.</p>
+      <a href="mailto:pa-signature@outlook.fr?subject=Demande PDF Magie Bougies" class="pdf-dl">↓ Télécharger</a>
+    </div>
+    <div class="pdf-card">
+      <span class="pdf-badge">Gratuit</span>
+      <div class="pdf-icon">💎</div>
+      <h3>Purification & Cristaux</h3>
+      <p>Comment nettoyer, purifier et recharger vos cristaux. Guide des pierres les plus utilisées en lithothérapie.</p>
+      <a href="mailto:pa-signature@outlook.fr?subject=Demande PDF Cristaux" class="pdf-dl">↓ Télécharger</a>
+    </div>
+    <div class="pdf-card">
+      <span class="pdf-badge">Gratuit</span>
+      <div class="pdf-icon">⭐</div>
+      <h3>Calendrier Lunaire 2026</h3>
+      <p>Toutes les phases lunaires de l'année, les signes correspondants et les meilleures périodes pour chaque rituel.</p>
+      <a href="mailto:pa-signature@outlook.fr?subject=Demande Calendrier Lunaire" class="pdf-dl">↓ Télécharger</a>
+    </div>
+  </div>
+</section>
+
+<!-- BOUTIQUE -->
+<section id="boutique">
+  <div class="section-header fade-in">
+    <span class="section-tag">✦ Ko-fi ✦</span>
+    <h2 class="section-title">La <em>Boutique</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="boutique-inner fade-in">
+    <div class="boutique-text">
+      <h2>Vos outils pour <em>aller plus loin</em></h2>
+      <p>Retrouvez dans la boutique des ressources premium, des tirages personnalisés et des guides approfondis pour soutenir et enrichir votre chemin spirituel.</p>
+      <ul class="boutique-items">
+        <li>Tirages de tarot personnalisés</li>
+        <li>Packs PDF premium</li>
+        <li>Guides thématiques approfondis</li>
+        <li>Ressources exclusives</li>
+        <li>Soutien à la création de contenu</li>
+      </ul>
+      <a href="https://ko-fi.com/lumiereinterieurep" target="_blank" class="btn-or">Visiter la Boutique Ko-fi ✦</a>
+    </div>
+    <div class="boutique-visual">
+      <a href="https://ko-fi.com/lumiereinterieurep" target="_blank" class="boutique-frame">
+        <span class="b-icon">🛍️</span>
+        <span class="b-title">Boutique<br>Lumière Intérieure</span>
+        <span class="b-sub">Tirages · Guides<br>Ressources exclusives</span>
+        <span class="b-btn">Découvrir →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section id="newsletter">
+  <div class="newsletter-inner fade-in">
+    <h2>Rejoignez la <em>tribu</em> 🌙</h2>
+    <p>Abonnez-vous pour recevoir la carte du jour, les rituels lunaires du mois, des ressources exclusives et des messages de guidance directement dans votre boîte mail.</p>
+    <div class="nl-form">
+      <input type="email" placeholder="Votre adresse email…" />
+      <button type="button">Rejoindre</button>
+    </div>
+    <p class="nl-rgpd">En vous inscrivant, vous acceptez de recevoir nos emails spirituels. Désabonnement possible à tout moment. Conformément au RGPD.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo-f">🌙 Lumière Intérieure</span>
+      <p>Un espace de guidance, de spiritualité et de développement intérieur. Tarot, rituels, chakras et pratiques énergétiques pour éveiller la lumière qui est en vous.</p>
+      <div class="socials">
+        <a href="https://www.instagram.com/lumiere.interieurep/" class="social-btn" title="Instagram" aria-label="Instagram">📷</a>
+        <a href="https://www.tiktok.com/@lumiereinterieurep" class="social-btn" title="TikTok" aria-label="TikTok">🎵</a>
+        <a href="https://www.facebook.com/profile.php?id=61589072684731" class="social-btn" title="Facebook" aria-label="Facebook">👥</a>
+        <a href="https://ko-fi.com/lumiereinterieurep" target="_blank" class="social-btn" title="Ko-fi" aria-label="Ko-fi">☕</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#carte">Carte du Jour</a></li>
+        <li><a href="#cartes">Tarot & Oracles</a></li>
+        <li><a href="#rituels">Rituels</a></li>
+        <li><a href="#chakras">Chakras</a></li>
+        <li><a href="#pdf">PDF Gratuits</a></li>
+        <li><a href="#boutique">Boutique</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Ressources</h4>
+      <ul>
+        <li><a href="#pdf">Guides PDF gratuits</a></li>
+        <li><a href="#cartes">Calendrier lunaire</a></li>
+        <li><a href="#chakras">Guide des chakras</a></li>
+        <li><a href="https://ko-fi.com/lumiereinterieurep" target="_blank">Boutique Ko-fi</a></li>
+        <li><a href="#newsletter">Newsletter</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact">
+        <p>✉️ <a href="mailto:pa-signature@outlook.fr">pa-signature@outlook.fr</a></p>
+        <br>
+        <p>Pour toute question, collaboration ou tirage personnalisé, n'hésitez pas à écrire.</p>
+        <br>
+        <p>🛍️ <a href="https://ko-fi.com/lumiereinterieurep" target="_blank">ko-fi.com/lumiereinterieurep</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Lumière Intérieure · Tous droits réservés · Made with 🌙</p>
+    <div class="footer-legal">
+      <a href="politique-confidentialite.html">Politique de confidentialité</a>
+      <a href="politique-confidentialite.html#mentions">Mentions légales</a>
+      <button onclick="document.getElementById('rgpd-banner').style.display='flex'" style="background:none;border:none;color:var(--text-doux);font-size:0.75rem;cursor:pointer;opacity:0.6;font-family:'Jost',sans-serif;transition:opacity 0.2s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.6">Gérer les cookies</button>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== BANNIÈRE RGPD ===== -->
+<div id="rgpd-banner" style="display:none;position:fixed;bottom:0;left:0;width:100%;z-index:9999;background:rgba(13,10,26,0.98);border-top:1px solid rgba(201,169,110,0.3);padding:20px 5%;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;backdrop-filter:blur(12px)">
+  <div style="flex:1;min-width:260px">
+    <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:#C9A96E;margin-bottom:6px">🍪 Nous respectons votre vie privée</p>
+    <p style="font-size:0.8rem;color:#8B7FA8;line-height:1.7">Ce site utilise des cookies techniques nécessaires à son fonctionnement. Aucun cookie publicitaire n'est utilisé sans votre accord. En continuant, vous acceptez notre <a href="politique-confidentialite.html" style="color:#E8D5B0;text-decoration:underline">politique de confidentialité</a>.</p>
+  </div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+    <button onclick="refuserCookies()" style="background:transparent;border:1px solid rgba(201,169,110,0.4);color:#8B7FA8;padding:10px 20px;border-radius:2px;font-size:0.78rem;letter-spacing:0.1em;cursor:pointer;font-family:'Jost',sans-serif;transition:all 0.3s" onmouseover="this.style.borderColor='#C9A96E';this.style.color='#C9A96E'" onmouseout="this.style.borderColor='rgba(201,169,110,0.4)';this.style.color='#8B7FA8'">Refuser</button>
+    <button onclick="accepterCookies()" style="background:#C9A96E;border:none;color:#0D0A1A;padding:10px 24px;border-radius:2px;font-size:0.78rem;letter-spacing:0.1em;cursor:pointer;font-family:'Jost',sans-serif;font-weight:500;transition:all 0.3s" onmouseover="this.style.background='#E8D5B0'" onmouseout="this.style.background='#C9A96E'">Accepter ✦</button>
+  </div>
+</div>
+
+<script>
+// Étoiles
+(function(){
+  const container = document.getElementById('stars');
+  for(let i=0; i<120; i++){
+    const s = document.createElement('div');
+    s.className = 'star';
+    const size = Math.random()*2.5+0.5;
+    s.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${Math.random()*100}%;
+      top:${Math.random()*100}%;
+      --d:${(Math.random()*4+2).toFixed(1)}s;
+      --o:${(Math.random()*0.6+0.2).toFixed(2)};
+      animation-delay:${(Math.random()*5).toFixed(1)}s;
+    `;
+    container.appendChild(s);
+  }
+})();
+
+// Hamburger
+const ham = document.getElementById('hamburger');
+const nav = document.getElementById('navLinks');
+ham.addEventListener('click', () => nav.classList.toggle('open'));
+
+// Fade-in on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Cartes du tarot - animation au clic
+document.querySelectorAll('.card-frame').forEach(card => {
+  const cards = [
+    { symbol: '🌟', name: "L'Étoile", num: 'XVII · Arcane Majeur' },
+    { symbol: '☀️', name: 'Le Soleil', num: 'XIX · Arcane Majeur' },
+    { symbol: '🌙', name: 'La Lune', num: 'XVIII · Arcane Majeur' },
+    { symbol: '⚡', name: 'La Tour', num: 'XVI · Arcane Majeur' },
+    { symbol: '🌍', name: 'Le Monde', num: 'XXI · Arcane Majeur' },
+    { symbol: '💫', name: 'Le Fou', num: '0 · Arcane Majeur' },
+  ];
+  card.addEventListener('click', () => {
+    const c = cards[Math.floor(Math.random()*cards.length)];
+    card.querySelector('.card-symbol').textContent = c.symbol;
+    card.querySelector('.card-name').textContent = c.name;
+    card.querySelector('.card-num').textContent = c.num;
+    card.style.transform = 'rotateY(360deg)';
+    setTimeout(() => card.style.transform = '', 500);
+  });
+});
+
+// Newsletter & formulaires
+document.querySelectorAll('button').forEach(btn => {
+  btn.addEventListener('click', function(){
+    const input = this.previousElementSibling || this.parentElement.querySelector('input');
+    if(input && input.value && input.value.includes('@')){
+      this.textContent = '✓ Merci !';
+      this.style.background = '#4A9E5C';
+      input.value = '';
+      setTimeout(() => {
+        this.textContent = this.textContent.includes('abonner') ? 'S\'abonner' : 'Rejoindre';
+        this.style.background = '';
+      }, 3000);
+    } else if(input) {
+      input.style.borderColor = '#C94A4A';
+      setTimeout(() => input.style.borderColor = '', 2000);
+    }
+  });
+});
+
+// ===== RGPD =====
+function accepterCookies(){
+  localStorage.setItem('rgpd','accepted');
+  document.getElementById('rgpd-banner').style.display='none';
+}
+function refuserCookies(){
+  localStorage.setItem('rgpd','refused');
+  document.getElementById('rgpd-banner').style.display='none';
+}
+// Afficher la bannière si pas encore de choix
+if(!localStorage.getItem('rgpd')){
+  document.getElementById('rgpd-banner').style.display='flex';
+}
+
+// Mise à jour date carte du jour
+const today = new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+const dateTag = document.querySelector('.date-tag');
+if(dateTag) dateTag.textContent = `✦ Carte du jour · ${today}`;
+
+// Mise à jour phase lunaire
+const phases = [
+  { icon: '🌑', name: 'Nouvelle Lune', desc: 'Période idéale pour planter vos intentions, commencer un nouveau projet et vous tourner vers l\'intérieur.' },
+  { icon: '🌒', name: 'Premier Croissant', desc: 'L\'énergie monte. Mettez vos projets en action, osez agir selon vos intentions.' },
+  { icon: '🌓', name: 'Premier Quartier', desc: 'Surmontez les obstacles. C\'est le moment de persévérer et d\'ajuster votre cap.' },
+  { icon: '🌔', name: 'Lune Gibbeuse', desc: 'Affinez et peaufinez. L\'abondance approche, restez dans votre élan créatif.' },
+  { icon: '🌕', name: 'Pleine Lune', desc: 'Période idéale pour les tirages de clarification, les rituels de gratitude et la recharge de vos cristaux.' },
+  { icon: '🌖', name: 'Lune Décroissante', desc: 'Moment de lâcher prise, de gratitude et de libération de ce qui ne vous sert plus.' },
+  { icon: '🌗', name: 'Dernier Quartier', desc: 'Faites le bilan, pardonnez et libérez. La transformation est en cours.' },
+  { icon: '🌘', name: 'Lune Balsamic', desc: 'Reposez-vous, méditez et préparez-vous pour un nouveau cycle lunaire.' },
+];
+const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(),0,0)) / 86400000);
+const phase = phases[dayOfYear % 8];
+const mp = document.querySelector('.moon-phase');
+if(mp){
+  mp.textContent = phase.icon;
+  mp.nextElementSibling.textContent = phase.name;
+  mp.nextElementSibling.nextElementSibling.textContent = phase.desc;
+}
+</script>
+</body>
+</html>
+
+
+

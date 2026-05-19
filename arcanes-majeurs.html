@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Les 22 Arcanes Majeurs — Lumière Intérieure</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--or:#C9A96E;--or-clair:#E8D5B0;--violet:#4A3060;--nuit:#0D0A1A;--nuit-mid:#1A1428;--creme:#FAF6EE;--text-doux:#8B7FA8}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--nuit);color:var(--creme);overflow-x:hidden}
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(13,10,26,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,169,110,0.2);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--or);letter-spacing:0.1em;text-decoration:none}
+.logo span{font-style:italic;color:var(--or-clair)}
+.nav-back{color:var(--text-doux);text-decoration:none;font-size:0.85rem;letter-spacing:0.08em;transition:color 0.2s}
+.nav-back:hover{color:var(--or)}
+.hero-page{padding:140px 5% 80px;text-align:center;background:radial-gradient(ellipse at 50% 30%,rgba(74,48,96,0.4) 0%,transparent 70%)}
+.page-tag{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--or);margin-bottom:1rem;display:block}
+.page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:300;color:var(--creme);line-height:1.2;margin-bottom:1rem}
+.page-title em{font-style:italic;color:var(--or)}
+.page-intro{color:var(--text-doux);font-size:1.05rem;line-height:1.9;max-width:700px;margin:0 auto;font-family:'Cormorant Garamond',serif;font-style:italic}
+.divider{width:60px;height:1px;background:var(--or);margin:1.5rem auto;opacity:0.5}
+.content-wrap{max-width:1100px;margin:0 auto;padding:0 5% 100px}
+.arcanes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-top:20px}
+.arcane-card{background:rgba(255,255,255,0.02);border:1px solid rgba(201,169,110,0.15);border-radius:4px;padding:24px;transition:all 0.3s;cursor:pointer;position:relative;overflow:hidden}
+.arcane-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--or);transition:width 0.4s}
+.arcane-card:hover::after{width:100%}
+.arcane-card:hover{background:rgba(74,48,96,0.2);border-color:rgba(201,169,110,0.4);transform:translateY(-3px)}
+.arcane-header{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.arcane-num{width:36px;height:36px;border:1px solid rgba(201,169,110,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;color:var(--or);letter-spacing:0.05em;flex-shrink:0;font-family:'Cormorant Garamond',serif}
+.arcane-symbol{font-size:1.8rem}
+.arcane-name{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--creme);font-weight:400}
+.arcane-name span{display:block;font-size:0.72rem;color:var(--text-doux);letter-spacing:0.12em;font-family:'Jost',sans-serif;text-transform:uppercase;margin-top:2px}
+.arcane-desc{font-size:0.84rem;color:var(--text-doux);line-height:1.75;margin-bottom:12px}
+.arcane-keywords{display:flex;flex-wrap:wrap;gap:6px}
+.kw{font-size:0.7rem;color:var(--or);border:1px solid rgba(201,169,110,0.25);padding:3px 10px;border-radius:20px;letter-spacing:0.05em}
+.section-label{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--or);margin:50px 0 20px;display:block;opacity:0.8}
+.nav-pages{display:flex;justify-content:space-between;align-items:center;padding:40px 0;border-top:1px solid rgba(201,169,110,0.15);margin-top:60px;flex-wrap:wrap;gap:16px}
+.nav-page-btn{display:flex;align-items:center;gap:10px;color:var(--text-doux);text-decoration:none;font-size:0.85rem;transition:color 0.2s}
+.nav-page-btn:hover{color:var(--or)}
+.nav-page-btn .arrow{color:var(--or)}
+footer-mini{display:block;text-align:center;padding:30px;border-top:1px solid rgba(255,255,255,0.05);color:var(--text-doux);font-size:0.8rem}
+</style>
+</head>
+<body>
+<nav>
+ <a href="index.html" class="logo">🌙 <span>Lumière</span> Intérieurep</a>
+  <a href="index.html#categories" class="nav-back">← Retour au site</a>
+</nav>
+
+<div class="hero-page">
+  <span class="page-tag">✦ Les Arcanes Majeurs ✦</span>
+  <h1 class="page-title">Les 22 <em>Arcanes Majeurs</em></h1>
+  <div class="divider"></div>
+  <p class="page-intro">Les Arcanes Majeurs sont le cœur du tarot. Chacune de ces 22 cartes représente un archétype universel, une énergie fondamentale et une étape du voyage de l'âme humaine.</p>
+</div>
+
+<div class="content-wrap">
+  <span class="section-label">✦ Le Voyage du Fou — Les 22 Arcanes</span>
+  <div class="arcanes-grid">
+
+    <div class="arcane-card">
+      <div class="arcane-header">
+        <div class="arcane-num">0</div>
+        <span class="arcane-symbol">🌟</span>
+        <div class="arcane-name">Le Fou<span>The Fool</span></div>
+      </div>
+      <p class="arcane-desc">Le Fou représente le début du voyage, l'innocence pure et le saut dans l'inconnu. Il symbolise la liberté absolue, l'esprit d'aventure et la confiance aveugle en la vie. C'est l'énergie du commencement, de l'audace et de la spontanéité.</p>
+      <div class="arcane-keywords"><span class="kw">Nouveaux départs</span><span class="kw">Liberté</span><span class="kw">Aventure</span><span class="kw">Innocence</span></div>
+    </div>
+
+    <div class="arcane-card">
+      <div class="arcane-header">
+        <div class="arcane-num">I</div>
+        <span class="arcane-symbol">🪄</span>
+        <div class="arcane-name">Le Bateleur<span>The Magician</span></div>
+      </div>
+      <p class="arcane-desc">Le Bateleur est le maître de la manifestation. Il possède tous les outils nécessaires et sait les utiliser avec habileté. Il représente la volonté, la créativité, le talent et la capacité à transformer ses idées en réalité concrète.</p>
+      <div class="arcane-keywords"><span class="kw">Manifestation</span><span class="kw">Volonté</span><span class="kw">Talent</span><span class="kw">Action</span></div>
+    </div>
+
+    <div class="arcane-card">
+      <div class="arcane-header">
+        <div class="arcane-num">II</div>
+        <span class="arcane-symbol">🌙</span>
+        <div class="arcane-name">La Papesse<span>High Priestess</span></div>
+      </div>
+      <p class="arcane-desc">La Papesse garde les secrets du monde invisible. Elle incarne l'intuition profonde, la sagesse intérieure et la connaissance des mystères. Elle invite à écouter sa voix intérieure, à faire confiance à son ressenti plutôt qu'à la logique pure.</p>
+      <div class="arcane-keywords"><span class="kw">Intuition</span><span class="kw">Mystère</span><span class="kw">Sagesse</span><span class="kw">Silence</span></div>
+    </div>
+
+    <div class="arcane-card">
+      <div class="arcane-header">
+        <div class="arcane-num">III</div>
+        <span class="arcane-symbol">🌸</span>
+        <div class="arcane-name">L'Impératrice<span>The Empress</span></div>
+      </div>
+      <p class="arcane-desc">L'Impératrice est la déesse de l'abondance et de la fertilité. Elle symbolise la créativité épanouie, la nature, l'amour maternel et la prospérité. Elle représente la beauté sous toutes ses formes et l'énergie nourricière de la Terre.</p>
+      <div class="arcane-keywords"><span class="kw">Abondance</span><span class="kw">Créativité</span><span class="kw">Nature</span><span class="kw">Fertilité</span></div>
+    </div>
+
+    <div class="arcane-card">
+      <div class="arcane-header">
+        <div class="arcane-num">IV</div>
+        <span class="arcane-symbol">👑</span>
+        <div class="arcane-name">L'Empereur<span>The Emperor</span></div>
+      </div>
+      <p class="arcane-desc">L'Empereur représente la structure, l'autorité et la stabilité. Il incarne le pouvoir responsable, la discipline et la capacité à construire des fondations solides. Il rappelle l'importance des règles, de l'organisation et du leadership.</p>
+      <div class="arcane-keywords"><span class="kw">Autorité</span><span class="kw">Structure</span><span class="kw">Stabilité</span><span class="kw">Discipline</span></div>
+    </div>
+
+    <div class="arcane-card">
+      <div class="arcane-header">
+        <div class="arcane-num">V</div>
+        <span class="arcane-symbol">⛪</span>
+        <div class="arcane-name">Le Pape<span>The Hierophant</span></div>
+      </div>
+      <p class="arcane-desc">Le Pape est le gardien de la tradition et de la sagesse spirituelle transmise. Il représente l'enseignement, les croyances, les institutions et la quête de sens spirituel. Il invite à chercher guidance auprès de la tradition et de la communauté.</p>
+      <div class="arcane-keywords"><span class="kw">Tradition</span><span class="kw">Enseignement</span><span class="kw">Spiritualité</span><span class="kw">Guidance</span></div>
+    </div>
+
+    <div class="arcane-card">
+      <div class="arcane-header">
+        <div class="arcane-num">VI</div>
+        <span class="arcane-symbol">💑</span>
+        <div class="arcane-name">Les Amoureux<span>The Lovers</span></div>
+      </div>
+      <p class="arcane-desc">Les Amoureux parlent de choix importants et de connexions profondes. Au-delà de l'amour romantique, cette carte symbolise l'alignement des valeurs, les décisions du cœur et l'union des opposés en harmonie.</p>
+      <div class="arcane-keywords"><span class="kw">Amour</span><span class="kw">Choix</span><span class="kw">Harmonie</span><span class="kw">Valeurs</span></div>
+    </div>
+
+    <div class="arcane-card">
+      <div class="arcane-header">
+        <div class="arcane-num">VII</div>
+        <span class="arcane-symbol">🏆</span>
+        <div class="arcane-name">Le Chariot<span>The Chariot</span></div>
+      </div>
+      <p class="arcane-desc">Le Chariot symbolise la victoire, la maîtrise de soi et la détermination. Il représente la capacité à avancer malgré les obstacles, à canaliser des énergies contraires vers un but commun. C'est la carte du triomphe par la volonté.</p>
+      <div class="arcane-keywords"><span class="kw">Victoire</span><span class="kw">Maîtrise</span><span class="kw">Détermination</span><span class="kw">Mouvement</span></div>
+    </div>
+
+    <div class="arcane-card">
+      <div class="arcane-header">
+        <div class="arcane-num">VIII</div>
+        <span class="arcane-symbol">🦁</span>
+        <div class="arcane-name">La Force<span>Strength</span></div>
+      </div>
+      <p class="arcane-desc">La Force n'est pas la force brute mais la puissance douce et intérieure. Elle représente le courage, la patience et la capacité à apprivoiser ses instincts avec amour. C'est la force du cœur qui triomphe de toutes les peurs.</p>
+      <div class="arcane-keywords"><span class="kw">Courage</span><span class="kw">Patience</span><span class="kw">Douceur</span><span class="kw">Maîtrise</span></div>
+    </div>
+
+    <div class="arcane-card">
+      <div class="arcane-header">
+        <div class="arcane-num">IX</div>
+        <span class="arcane-symbol">🏔️</span>
+        <div class="arcane-name">L'Ermite<span>The Hermit</span></div>
+      </div>
+      <p class="arcane-desc">L'Ermite marche seul avec sa lanterne, guidé par sa lumière intérieure. Il symbolise la retraite nécessaire, la quête de vérité personnelle et la sagesse que l'on trouve dans la solitude et la méditation profonde.</p>
+      <div class="arcane-keywords"><span class="kw">Solitude</span><span class="kw">Sagesse</span><span class="kw">Introspection</span><span class="kw">Lumière</span></div>
+    </div>
+
+    <div class="arcane-card">
+      <div class="arcane-header">
+        <div class="arcane-num">X</div>
+        <span class="arcane-symbol">☸️</span>
+        <div class="arcane-name">La Roue de Fortune<span>Wheel of Fortune</span></div>
+      </div>
+      <p class="arcane-desc">La Roue de Fortune rappelle que tout est en mouvement perpétuel. Elle symbolise les cycles de la vie, les changements inévitables et le destin. Ce qui monte redescend, ce qui descend remonte. Elle invite à lâcher prise sur ce qu'on ne contrôle pas.</p>
+      <div class="arcane-keywords"><span class="kw">Cycles</span><span class="kw">Destin</span><span class="kw">Changement</span><span class="kw">Lâcher prise</span></div>
+    </div>
+
+    <div class="arcane-card">
+      <div class="arcane-header">
+        <div class="arcane-num">XI</div>
+        <span class="arcane-symbol">⚖️</span>
+        <div class="arcane-name">La Justice<span>Justice</span></div>
+      </div>
+      <p class="arcane-desc">La Justice représente l'équilibre, la vérité et la responsabilité karmique. Elle rappelle que chaque action a des conséquences et que l'honnêteté est la base de toute relation harmonieuse. Elle appelle à la clarté et à l'équité.</p>
+      <div class="arcane-keywords"><span class="kw">Équilibre</span><span class="kw">Vérité</span><span class="kw">Karma</span><span class="kw">Responsabilité</span></div>
+    </div>
+
+    <div class="arcane-card">
+      <div class="arcane-header">
+        <div class="arcane-num">XII</div>
+        <span class="arcane-symbol">🙃</span>
+        <div class="arcane-name">Le Pendu<span>The Hanged Man</span></div>
+      </div>
+      <p class="arcane-desc">Le Pendu est suspendu volontairement, dans un état de pause et de lâcher prise. Il représente le sacrifice consenti, le changement de perspective et la sagesse qui naît de l'acceptation. Parfois, ne rien faire est la plus grande des actions.</p>
+      <div class="arcane-keywords"><span class="kw">Pause</span><span class="kw">Lâcher prise</span><span class="kw">Perspective</span><span class="kw">Sacrifice</span></div>
+    </div>
+
+    <div class="arcane-card">
+      <div class="arcane-header">
+        <div class="arcane-num">XIII</div>
+        <span class="arcane-symbol">🌑</span>
+        <div class="arcane-name">La Mort<span>Death</span></div>
+      </div>
+      <p class="arcane-desc">La Mort n'est pas à craindre dans le tarot — elle symbolise la transformation profonde et la renaissance. Elle marque la fin d'un cycle pour en commencer un nouveau. C'est la carte du renouveau radical et des transitions nécessaires.</p>
+      <div class="arcane-keywords"><span class="kw">Transformation</span><span class="kw">Renaissance</span><span class="kw">Fin de cycle</span><span class="kw">Renouveau</span></div>
+    </div>
+
+    <div class="arcane-card">
+      <div class="arcane-header">
+        <div class="arcane-num">XIV</div>
+        <span class="arcane-symbol">🌊</span>
+        <div class="arcane-name">La Tempérance<span>Temperance</span></div>
+      </div>
+      <p class="arcane-desc">La Tempérance représente l'harmonie, l'équilibre et la guérison en douceur. Elle invite à mélanger les énergies opposées avec sagesse, à trouver le juste milieu et à avancer avec patience et grâce dans les processus de transformation.</p>
+      <div class="arcane-keywords"><span class="kw">Harmonie</span><span class="kw">Patience</span><span class="kw">Guérison</span><span class="kw">Équilibre</span></div>
+    </div>
+
+    <div class="arcane-card">
+      <div class="arcane-header">
+        <div class="arcane-num">XV</div>
+        <span class="arcane-symbol">🔥</span>
+        <div class="arcane-name">Le Diable<span>The Devil</span></div>
+      </div>
+      <p class="arcane-desc">Le Diable représente nos attachements, addictions et illusions qui nous enchaînent. Il symbolise la shadow, les désirs inavoués et les peurs inconscientes. Il nous invite à reconnaître ce qui nous lie pour pouvoir nous libérer.</p>
+      <div class="arcane-keywords"><span class="kw">Attachements</span><span class="kw">Shadow</span><span class="kw">Libération</span><span class="kw">Peurs</span></div>
+    </div>
+
+    <div class="arcane-card">
+      <div class="arcane-header">
+        <div class="arcane-num">XVI</div>
+        <span class="arcane-symbol">⚡</span>
+        <div class="arcane-name">La Tour<span>The Tower</span></div>
+      </div>
+      <p class="arcane-desc">La Tour représente la chute soudaine des illusions et des structures fragiles. Choc en apparence destructeur, elle libère en réalité de ce qui ne tient plus. Après la Tour, tout est possible car les fausses certitudes ont été renversées.</p>
+      <div class="arcane-keywords"><span class="kw">Bouleversement</span><span class="kw">Révélation</span><span class="kw">Libération</span><span class="kw">Rupture</span></div>
+    </div>
+
+    <div class="arcane-card">
+      <div class="arcane-header">
+        <div class="arcane-num">XVII</div>
+        <span class="arcane-symbol">⭐</span>
+        <div class="arcane-name">L'Étoile<span>The Star</span></div>
+      </div>
+      <p class="arcane-desc">L'Étoile brille après la tempête comme un phare d'espoir. Elle symbolise la guérison, l'inspiration divine et la foi en l'avenir. C'est la carte de la sérénité retrouvée, de la connexion à son âme et de la confiance dans le flux de la vie.</p>
+      <div class="arcane-keywords"><span class="kw">Espoir</span><span class="kw">Guérison</span><span class="kw">Inspiration</span><span class="kw">Sérénité</span></div>
+    </div>
+
+    <div class="arcane-card">
+      <div class="arcane-header">
+        <div class="arcane-num">XVIII</div>
+        <span class="arcane-symbol">🌕</span>
+        <div class="arcane-name">La Lune<span>The Moon</span></div>
+      </div>
+      <p class="arcane-desc">La Lune éclaire le monde nocturne des rêves et de l'inconscient. Elle représente les illusions, les peurs cachées et les zones d'ombre à explorer. Elle invite à faire confiance à son intuition dans l'obscurité et à traverser ses propres mystères.</p>
+      <div class="arcane-keywords"><span class="kw">Inconscient</span><span class="kw">Illusions</span><span class="kw">Intuition</span><span class="kw">Mystère</span></div>
+    </div>
+
+    <div class="arcane-card">
+      <div class="arcane-header">
+        <div class="arcane-num">XIX</div>
+        <span class="arcane-symbol">☀️</span>
+        <div class="arcane-name">Le Soleil<span>The Sun</span></div>
+      </div>
+      <p class="arcane-desc">Le Soleil rayonne de joie, de vitalité et de succès. C'est l'une des cartes les plus positives du tarot. Elle symbolise la clarté, l'épanouissement, la réussite et la joie de vivre authentique. Elle annonce le bonheur et la lumière après l'obscurité.</p>
+      <div class="arcane-keywords"><span class="kw">Joie</span><span class="kw">Succès</span><span class="kw">Clarté</span><span class="kw">Épanouissement</span></div>
+    </div>
+
+    <div class="arcane-card">
+      <div class="arcane-header">
+        <div class="arcane-num">XX</div>
+        <span class="arcane-symbol">🎺</span>
+        <div class="arcane-name">Le Jugement<span>Judgement</span></div>
+      </div>
+      <p class="arcane-desc">Le Jugement est l'appel au réveil et à la transformation finale. Il représente la résurrection spirituelle, le bilan de vie et la réponse à un appel profond de l'âme. C'est le moment de se libérer du passé pour s'élever vers sa vérité.</p>
+      <div class="arcane-keywords"><span class="kw">Éveil</span><span class="kw">Résurrection</span><span class="kw">Bilan</span><span class="kw">Appel</span></div>
+    </div>
+
+    <div class="arcane-card">
+      <div class="arcane-header">
+        <div class="arcane-num">XXI</div>
+        <span class="arcane-symbol">🌍</span>
+        <div class="arcane-name">Le Monde<span>The World</span></div>
+      </div>
+      <p class="arcane-desc">Le Monde représente l'accomplissement total, la complétude et la plénitude. C'est l'aboutissement du voyage du Fou — l'intégration de toutes les expériences. Il symbolise le succès durable, l'harmonie universelle et la réalisation de soi.</p>
+      <div class="arcane-keywords"><span class="kw">Accomplissement</span><span class="kw">Complétude</span><span class="kw">Harmonie</span><span class="kw">Réalisation</span></div>
+    </div>
+
+  </div>
+
+  <div class="nav-pages">
+    <a href="histoire-tarot.html" class="nav-page-btn"><span class="arrow">←</span> Histoire du Tarot</a>
+    <a href="comment-tirer-cartes.html" class="nav-page-btn">Comment tirer les cartes <span class="arrow">→</span></a>
+  </div>
+</div>
+
+<footer-mini>© 2026 Lumière Intérieure · Tous droits réservés 🌙</footer-mini>
+</body>
+</html>

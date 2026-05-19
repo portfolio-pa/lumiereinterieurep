@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Numérologie & Astrologie — Lumière Intérieure</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--or:#C9A96E;--or-clair:#E8D5B0;--nuit:#0D0A1A;--nuit-mid:#1A1428;--creme:#FAF6EE;--text-doux:#8B7FA8}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--nuit);color:var(--creme);overflow-x:hidden}
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(13,10,26,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,169,110,0.2);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--or);text-decoration:none}
+.logo span{font-style:italic;color:var(--or-clair)}
+.nav-back{color:var(--text-doux);text-decoration:none;font-size:0.85rem;transition:color 0.2s}
+.nav-back:hover{color:var(--or)}
+.hero-page{padding:140px 5% 80px;text-align:center;background:radial-gradient(ellipse at 50% 30%,rgba(74,48,96,0.4) 0%,transparent 70%)}
+.page-tag{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--or);margin-bottom:1rem;display:block}
+.page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:300;color:var(--creme);line-height:1.2;margin-bottom:1rem}
+.page-title em{font-style:italic;color:var(--or)}
+.page-intro{color:var(--text-doux);font-size:1.05rem;line-height:1.9;max-width:700px;margin:0 auto;font-family:'Cormorant Garamond',serif;font-style:italic}
+.divider{width:60px;height:1px;background:var(--or);margin:1.5rem auto;opacity:0.5}
+.content-wrap{max-width:960px;margin:0 auto;padding:0 5% 100px}
+.section-label{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--or);margin:50px 0 24px;display:block}
+.intro-p{color:var(--text-doux);line-height:1.95;font-size:0.97rem;margin-bottom:2rem}
+.intro-p strong{color:var(--or-clair);font-weight:500}
+.calc-box{background:rgba(74,48,96,0.2);border:1px solid rgba(201,169,110,0.25);border-radius:6px;padding:32px;margin-bottom:50px}
+.calc-box h2{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--creme);margin-bottom:0.5rem}
+.calc-box h2 em{font-style:italic;color:var(--or)}
+.calc-box .calc-sub{color:var(--text-doux);font-size:0.88rem;margin-bottom:1.5rem;line-height:1.7}
+.calc-form{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:1.5rem}
+.calc-form input{background:rgba(255,255,255,0.05);border:1px solid rgba(201,169,110,0.3);color:var(--creme);padding:12px 16px;border-radius:2px;font-size:0.9rem;font-family:'Jost',sans-serif;outline:none;flex:1;min-width:180px}
+.calc-form input:focus{border-color:var(--or)}
+.calc-form button{background:var(--or);color:var(--nuit);border:none;padding:12px 24px;border-radius:2px;font-size:0.82rem;letter-spacing:0.1em;cursor:pointer;font-family:'Jost',sans-serif;font-weight:500;white-space:nowrap}
+.calc-result{display:none;background:rgba(255,255,255,0.03);border:1px solid rgba(201,169,110,0.2);border-radius:4px;padding:24px}
+.calc-result.show{display:block}
+.result-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;color:var(--or);text-align:center;display:block;margin-bottom:0.5rem}
+.result-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--creme);text-align:center;margin-bottom:1rem}
+.result-desc{color:var(--text-doux);font-size:0.9rem;line-height:1.8;text-align:center}
+.nums-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-bottom:60px}
+.num-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:22px;transition:all 0.3s}
+.num-card:hover{background:rgba(74,48,96,0.15);border-color:rgba(201,169,110,0.25)}
+.num-card .n-num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--or);display:block;margin-bottom:4px}
+.num-card h3{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--creme);font-weight:400;margin-bottom:0.5rem}
+.num-card p{font-size:0.83rem;color:var(--text-doux);line-height:1.75}
+.signes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-bottom:60px}
+.signe-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:18px;transition:all 0.3s;text-align:center}
+.signe-card:hover{background:rgba(74,48,96,0.15);border-color:rgba(201,169,110,0.25)}
+.signe-card .s-icon{font-size:1.8rem;display:block;margin-bottom:0.5rem}
+.signe-card h3{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--creme);font-weight:400;margin-bottom:2px}
+.signe-card .s-dates{font-size:0.72rem;color:var(--text-doux);letter-spacing:0.05em;margin-bottom:0.5rem}
+.signe-card .s-elem{font-size:0.72rem;color:var(--or);letter-spacing:0.08em}
+.nav-pages{display:flex;justify-content:space-between;align-items:center;padding:40px 0;border-top:1px solid rgba(201,169,110,0.15);margin-top:40px;flex-wrap:wrap;gap:16px}
+.nav-page-btn{display:flex;align-items:center;gap:10px;color:var(--text-doux);text-decoration:none;font-size:0.85rem;transition:color 0.2s}
+.nav-page-btn:hover{color:var(--or)}
+.nav-page-btn .arrow{color:var(--or)}
+footer-mini{display:block;text-align:center;padding:30px;border-top:1px solid rgba(255,255,255,0.05);color:var(--text-doux);font-size:0.8rem}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">🌙 <span>Lumière</span> Intérieurep</a>
+  <a href="index.html#categories" class="nav-back">← Retour au site</a>
+</nav>
+<div class="hero-page">
+  <span class="page-tag">✦ Nombres & Étoiles ✦</span>
+  <h1 class="page-title">Numérologie & <em>Astrologie</em></h1>
+  <div class="divider"></div>
+  <p class="page-intro">Les nombres et les astres sont deux langages universels qui décrivent votre âme, votre mission de vie et les cycles qui rythment votre existence.</p>
+</div>
+<div class="content-wrap">
+
+  <!-- Calculateur Chemin de Vie -->
+  <span class="section-label">✦ Numérologie — Calcul de votre Chemin de Vie</span>
+  <div class="calc-box">
+    <h2>Découvrez votre <em>Chemin de Vie</em></h2>
+    <p class="calc-sub">Le chemin de vie est le nombre le plus important en numérologie. Il révèle votre mission, vos talents naturels et les leçons que votre âme est venue apprendre dans cette vie. Entrez votre date de naissance pour le calculer.</p>
+    <div class="calc-form">
+      <input type="text" id="birthdate" placeholder="JJ/MM/AAAA (ex: 15/03/1990)" maxlength="10">
+      <button onclick="calculerCheminVie()">Calculer ✦</button>
+    </div>
+    <div class="calc-result" id="calcResult">
+      <span class="result-num" id="resultNum"></span>
+      <div class="result-name" id="resultName"></div>
+      <p class="result-desc" id="resultDesc"></p>
+    </div>
+  </div>
+
+  <span class="section-label">✦ Les 9 Chemins de Vie</span>
+  <div class="nums-grid">
+    <div class="num-card"><span class="n-num">1</span><h3>Le Leader</h3><p>Indépendance, originalité, leadership. Vous êtes venu(e) pour innover, ouvrir la voie et apprendre à vous faire confiance sans chercher l'approbation des autres.</p></div>
+    <div class="num-card"><span class="n-num">2</span><h3>Le Médiateur</h3><p>Coopération, sensibilité, diplomatie. Vous êtes un(e) bâtisseur(se) de ponts, un(e) partenaire de choix, doué(e) pour l'harmonie et la paix dans les relations.</p></div>
+    <div class="num-card"><span class="n-num">3</span><h3>Le Créatif</h3><p>Expression, joie, créativité, communication. Vous avez un don pour les arts, les mots et la capacité à apporter de la lumière et de la joie autour de vous.</p></div>
+    <div class="num-card"><span class="n-num">4</span><h3>Le Bâtisseur</h3><p>Stabilité, travail, fondations solides. Vous êtes venu(e) pour construire des structures durables — dans votre vie, votre carrière ou votre famille.</p></div>
+    <div class="num-card"><span class="n-num">5</span><h3>L'Aventurier</h3><p>Liberté, changement, expériences variées. Vous avez soif de liberté, d'aventure et de nouveauté. Votre vie est un terrain d'exploration perpétuel.</p></div>
+    <div class="num-card"><span class="n-num">6</span><h3>Le Nourricier</h3><p>Amour, responsabilité, service, famille. Vous portez en vous un profond désir de prendre soin des autres et de créer beauté et harmonie dans le monde.</p></div>
+    <div class="num-card"><span class="n-num">7</span><h3>Le Chercheur</h3><p>Spiritualité, analyse, mystère, sagesse intérieure. Vous êtes venu(e) pour chercher la vérité profonde, explorer les mystères de l'existence et approfondir votre connexion avec l'invisible.</p></div>
+    <div class="num-card"><span class="n-num">8</span><h3>Le Manifesteur</h3><p>Pouvoir, abondance, réussite matérielle. Vous êtes venu(e) pour maîtriser la manifestation matérielle et apprendre l'équilibre entre pouvoir personnel et service.</p></div>
+    <div class="num-card"><span class="n-num">9</span><h3>L'Humaniste</h3><p>Compassion universelle, sagesse, finalité. Vous portez en vous la sagesse de tous les autres chemins. Votre mission est d'aimer et de servir l'humanité.</p></div>
+  </div>
+
+  <span class="section-label">✦ Astrologie — Les 12 Signes du Zodiaque</span>
+  <div class="signes-grid">
+    <div class="signe-card"><span class="s-icon">♈</span><h3>Bélier</h3><div class="s-dates">21 mars – 19 avril</div><div class="s-elem">🔥 Feu · Mars</div></div>
+    <div class="signe-card"><span class="s-icon">♉</span><h3>Taureau</h3><div class="s-dates">20 avril – 20 mai</div><div class="s-elem">🌍 Terre · Vénus</div></div>
+    <div class="signe-card"><span class="s-icon">♊</span><h3>Gémeaux</h3><div class="s-dates">21 mai – 20 juin</div><div class="s-elem">💨 Air · Mercure</div></div>
+    <div class="signe-card"><span class="s-icon">♋</span><h3>Cancer</h3><div class="s-dates">21 juin – 22 juillet</div><div class="s-elem">🌊 Eau · Lune</div></div>
+    <div class="signe-card"><span class="s-icon">♌</span><h3>Lion</h3><div class="s-dates">23 juillet – 22 août</div><div class="s-elem">🔥 Feu · Soleil</div></div>
+    <div class="signe-card"><span class="s-icon">♍</span><h3>Vierge</h3><div class="s-dates">23 août – 22 sept</div><div class="s-elem">🌍 Terre · Mercure</div></div>
+    <div class="signe-card"><span class="s-icon">♎</span><h3>Balance</h3><div class="s-dates">23 sept – 22 oct</div><div class="s-elem">💨 Air · Vénus</div></div>
+    <div class="signe-card"><span class="s-icon">♏</span><h3>Scorpion</h3><div class="s-dates">23 oct – 21 nov</div><div class="s-elem">🌊 Eau · Pluton</div></div>
+    <div class="signe-card"><span class="s-icon">♐</span><h3>Sagittaire</h3><div class="s-dates">22 nov – 21 déc</div><div class="s-elem">🔥 Feu · Jupiter</div></div>
+    <div class="signe-card"><span class="s-icon">♑</span><h3>Capricorne</h3><div class="s-dates">22 déc – 19 jan</div><div class="s-elem">🌍 Terre · Saturne</div></div>
+    <div class="signe-card"><span class="s-icon">♒</span><h3>Verseau</h3><div class="s-dates">20 jan – 18 fév</div><div class="s-elem">💨 Air · Uranus</div></div>
+    <div class="signe-card"><span class="s-icon">♓</span><h3>Poissons</h3><div class="s-dates">19 fév – 20 mars</div><div class="s-elem">🌊 Eau · Neptune</div></div>
+  </div>
+
+  <div class="nav-pages">
+    <a href="cristaux.html" class="nav-page-btn"><span class="arrow">←</span> Cristaux & Lithothérapie</a>
+    <a href="lumiere-interieure.html" class="nav-page-btn">Retour à l'accueil <span class="arrow">→</span></a>
+  </div>
+</div>
+
+<script>
+const cheminData = {
+  1:{nom:'Le Chemin du Leader',desc:'Indépendant, pionnier, créatif et courageux. Vous êtes né(e) pour innover et ouvrir la voie. Votre mission est de développer votre confiance en vous et d\'apprendre à vous exprimer pleinement sans attendre la validation des autres.'},
+  2:{nom:'Le Chemin du Médiateur',desc:'Sensible, coopératif, diplomate et patient. Vous êtes un(e) excellent(e) partenaire et médiateur. Votre force réside dans votre capacité à créer de l\'harmonie et à percevoir les nuances que les autres ne voient pas.'},
+  3:{nom:'Le Chemin du Créatif',desc:'Expressif, joyeux, communicatif et inspirant. Vous avez un don naturel pour les arts et la communication. Votre mission est d\'exprimer votre créativité sans censure et d\'inspirer les autres par votre joie de vivre.'},
+  4:{nom:'Le Chemin du Bâtisseur',desc:'Stable, travailleur, organisé et fiable. Vous êtes venu(e) pour construire des fondations solides et durables. Votre force est votre capacité à concrétiser et à transformer les rêves en réalité par le travail et la persévérance.'},
+  5:{nom:'Le Chemin de l\'Aventurier',desc:'Libre, curieux, adaptable et passionné. Vous êtes venu(e) pour vivre mille expériences et embrasser le changement. Votre mission est d\'utiliser votre liberté avec sagesse pour évoluer et guider les autres.'},
+  6:{nom:'Le Chemin du Nourricier',desc:'Aimant, responsable, harmonieux et dévoué. Vous portez en vous un amour profond pour la famille et la beauté. Votre mission est d\'apprendre à prendre soin de vous autant que des autres.'},
+  7:{nom:'Le Chemin du Chercheur',desc:'Introspectif, analytique, spirituel et sage. Vous êtes venu(e) pour percer les mystères de l\'existence. Votre force réside dans votre profondeur et votre connexion au monde invisible.'},
+  8:{nom:'Le Chemin du Manifesteur',desc:'Ambitieux, puissant, efficace et visionnaire. Vous êtes venu(e) pour maîtriser l\'énergie matérielle. Votre mission est d\'utiliser votre pouvoir avec intégrité et de trouver l\'équilibre entre succès et générosité.'},
+  9:{nom:'Le Chemin de l\'Humaniste',desc:'Compassionnel, sage, universel et altruiste. Vous portez en vous la sagesse de toutes les expériences. Votre mission est d\'aimer inconditionnellement et de contribuer à élever la conscience collective.'},
+  11:{nom:'Le Maître Nombre 11 — L\'Illuminé',desc:'Nombre maître de haute vibration. Vous êtes un(e) canal de lumière et d\'inspiration. Votre mission est d\'apporter une vision nouvelle au monde et d\'éveiller les consciences par votre sensibilité et votre intuition exceptionnelles.'},
+  22:{nom:'Le Maître Nombre 22 — Le Grand Bâtisseur',desc:'Nombre maître de la manifestation ultime. Vous avez la capacité de concrétiser les plus grands rêves. Votre mission est de construire quelque chose de durable qui serve l\'humanité entière.'},
+  33:{nom:'Le Maître Nombre 33 — Le Maître Enseignant',desc:'Nombre maître de l\'amour universel. Vous êtes venu(e) pour enseigner par l\'amour et la compassion. Votre mission est d\'être un phare d\'amour inconditionnel pour ceux qui vous entourent.'}
+};
+
+function calculerCheminVie(){
+  const input = document.getElementById('birthdate').value.trim();
+  const parts = input.split('/');
+  if(parts.length !== 3 || parts[0].length < 1 || parts[1].length < 1 || parts[2].length < 4){
+    document.getElementById('birthdate').style.borderColor='#C94A4A';
+    setTimeout(()=>document.getElementById('birthdate').style.borderColor='',2000);
+    return;
+  }
+  const allDigits = (parts[0]+parts[1]+parts[2]).replace(/\D/g,'');
+  let sum = allDigits.split('').reduce((a,b)=>a+parseInt(b),0);
+  while(sum > 9 && sum !== 11 && sum !== 22 && sum !== 33){
+    sum = sum.toString().split('').reduce((a,b)=>a+parseInt(b),0);
+  }
+  const data = cheminData[sum] || cheminData[9];
+  document.getElementById('resultNum').textContent = sum;
+  document.getElementById('resultName').textContent = data.nom;
+  document.getElementById('resultDesc').textContent = data.desc;
+  document.getElementById('calcResult').classList.add('show');
+}
+document.getElementById('birthdate').addEventListener('keypress',(e)=>{if(e.key==='Enter')calculerCheminVie()});
+</script>
+<footer-mini>© 2026 Lumière Intérieure · Tous droits réservés 🌙</footer-mini>
+</body>
+</html>

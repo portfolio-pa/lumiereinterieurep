@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rituels & Pratiques Énergétiques — Lumière Intérieure</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--or:#C9A96E;--or-clair:#E8D5B0;--violet:#4A3060;--nuit:#0D0A1A;--nuit-mid:#1A1428;--creme:#FAF6EE;--text-doux:#8B7FA8}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--nuit);color:var(--creme);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(13,10,26,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,169,110,0.2);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--or);text-decoration:none}
+.logo span{font-style:italic;color:var(--or-clair)}
+.nav-back{color:var(--text-doux);text-decoration:none;font-size:0.85rem;transition:color 0.2s}
+.nav-back:hover{color:var(--or)}
+
+/* HERO */
+.hero-page{padding:140px 5% 80px;text-align:center;background:radial-gradient(ellipse at 50% 30%,rgba(74,48,96,0.45) 0%,transparent 65%);position:relative}
+.page-tag{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--or);margin-bottom:1rem;display:block}
+.page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:300;color:var(--creme);line-height:1.2;margin-bottom:1rem}
+.page-title em{font-style:italic;color:var(--or)}
+.page-intro{color:var(--text-doux);font-size:1.05rem;line-height:1.9;max-width:700px;margin:0 auto;font-family:'Cormorant Garamond',serif;font-style:italic}
+.divider{width:60px;height:1px;background:var(--or);margin:1.5rem auto;opacity:0.5}
+
+/* NAV PRATIQUES */
+.pratiques-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:0 5% 60px;max-width:900px;margin:0 auto}
+.pnav-btn{background:transparent;border:1px solid rgba(201,169,110,0.3);color:var(--text-doux);padding:8px 20px;border-radius:20px;font-size:0.78rem;letter-spacing:0.1em;cursor:pointer;text-decoration:none;transition:all 0.3s;font-family:'Jost',sans-serif}
+.pnav-btn:hover{border-color:var(--or);color:var(--or);background:rgba(201,169,110,0.05)}
+
+/* CONTENU */
+.content-wrap{max-width:940px;margin:0 auto;padding:0 5% 100px}
+.section-label{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--or);margin:70px 0 30px;display:block;opacity:0.9}
+
+/* BLOC PRATIQUE */
+.pratique-bloc{margin-bottom:80px;scroll-margin-top:90px}
+.pratique-header{display:flex;align-items:center;gap:20px;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid rgba(201,169,110,0.15)}
+.pratique-icon{font-size:2.8rem;flex-shrink:0}
+.pratique-header-text h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--creme);margin-bottom:4px}
+.pratique-header-text h2 em{font-style:italic;color:var(--or)}
+.pratique-header-text p{color:var(--text-doux);font-size:0.88rem;line-height:1.7}
+
+/* INTRO TEXTE */
+.pratique-intro{color:var(--text-doux);line-height:1.95;font-size:0.96rem;margin-bottom:2rem}
+.pratique-intro strong{color:var(--or-clair);font-weight:500}
+
+/* ÉTAPES */
+.etapes-wrap{margin-bottom:2rem}
+.etapes-wrap h3{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--or-clair);margin-bottom:1.2rem;font-weight:400;letter-spacing:0.05em}
+.etape-list{display:flex;flex-direction:column;gap:14px}
+.etape{display:flex;gap:16px;align-items:flex-start;padding:16px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:4px;transition:border-color 0.3s}
+.etape:hover{border-color:rgba(201,169,110,0.2)}
+.etape-num{width:32px;height:32px;border:1px solid rgba(201,169,110,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.78rem;color:var(--or);flex-shrink:0;font-family:'Cormorant Garamond',serif;font-size:1rem}
+.etape-content h4{font-size:0.88rem;color:var(--creme);font-weight:500;margin-bottom:4px}
+.etape-content p{font-size:0.84rem;color:var(--text-doux);line-height:1.75;margin:0}
+
+/* INFOS COLONNES */
+.infos-2col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:2rem}
+.info-col{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:20px}
+.info-col h4{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--or-clair);margin-bottom:1rem;font-weight:400}
+.info-col ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.info-col ul li{font-size:0.83rem;color:var(--text-doux);display:flex;gap:8px;line-height:1.6}
+.info-col ul li::before{content:'✦';color:var(--or);font-size:0.55rem;margin-top:5px;flex-shrink:0}
+.info-col ul li strong{color:var(--creme);font-weight:500}
+
+/* CITATION */
+.citation{border-left:2px solid var(--or);padding:16px 20px;margin:2rem 0;background:rgba(201,169,110,0.05);border-radius:0 4px 4px 0}
+.citation p{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:var(--creme);line-height:1.8;margin:0}
+.citation span{font-size:0.72rem;color:var(--text-doux);display:block;margin-top:6px;font-family:'Jost',sans-serif;letter-spacing:0.1em}
+
+/* MATÉRIEL */
+.materiel{background:rgba(74,48,96,0.15);border:1px solid rgba(201,169,110,0.12);border-radius:4px;padding:20px;margin-bottom:2rem}
+.materiel h4{font-size:0.72rem;letter-spacing:0.18em;color:var(--or);text-transform:uppercase;margin-bottom:1rem}
+.materiel ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.materiel ul li{font-size:0.78rem;color:var(--text-doux);background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);padding:5px 14px;border-radius:20px}
+
+/* TECHNIQUES GRILLE */
+.techniques-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-bottom:2rem}
+.tech-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:22px;transition:all 0.3s}
+.tech-card:hover{background:rgba(74,48,96,0.15);border-color:rgba(201,169,110,0.25);transform:translateY(-2px)}
+.tech-card .t-icon{font-size:1.8rem;display:block;margin-bottom:0.8rem}
+.tech-card h3{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--creme);font-weight:400;margin-bottom:0.5rem}
+.tech-card p{font-size:0.83rem;color:var(--text-doux);line-height:1.75}
+
+/* ALERTE */
+.alerte{background:rgba(201,169,110,0.08);border:1px solid rgba(201,169,110,0.25);border-radius:4px;padding:18px 22px;margin-bottom:2rem;display:flex;gap:14px;align-items:flex-start}
+.alerte .a-icon{font-size:1.2rem;flex-shrink:0;margin-top:2px}
+.alerte p{font-size:0.85rem;color:var(--or-clair);line-height:1.75;margin:0}
+
+/* SÉPARATEUR */
+.sep{height:1px;background:linear-gradient(to right,transparent,rgba(201,169,110,0.2),transparent);margin:70px 0}
+
+/* NAV PAGES */
+.nav-pages{display:flex;justify-content:space-between;align-items:center;padding:40px 0;border-top:1px solid rgba(201,169,110,0.15);margin-top:40px;flex-wrap:wrap;gap:16px}
+.nav-page-btn{display:flex;align-items:center;gap:10px;color:var(--text-doux);text-decoration:none;font-size:0.85rem;transition:color 0.2s}
+.nav-page-btn:hover{color:var(--or)}
+.nav-page-btn .arrow{color:var(--or)}
+
+footer-mini{display:block;text-align:center;padding:30px;border-top:1px solid rgba(255,255,255,0.05);color:var(--text-doux);font-size:0.8rem}
+
+@media(max-width:600px){.infos-2col{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+ <a href="index.html" class="logo">🌙 <span>Lumière</span> Intérieurep</a>
+  <a href="index.html#categories" class="nav-back">← Retour au site</a>
+</nav>
+
+<div class="hero-page">
+  <span class="page-tag">✦ Pratiques Sacrées ✦</span>
+  <h1 class="page-title">Rituels & <em>Pratiques Énergétiques</em></h1>
+  <div class="divider"></div>
+  <p class="page-intro">Des pratiques simples, puissantes et accessibles à tous pour vous reconnecter à vous-même, purifier votre énergie et avancer avec intention dans votre vie.</p>
+</div>
+
+<!-- Navigation rapide -->
+<div class="pratiques-nav">
+  <a href="#rituel-lunaire" class="pnav-btn">🌙 Rituel Lunaire</a>
+  <a href="#ramification" class="pnav-btn">🌿 Ramification</a>
+  <a href="#magie-bougie" class="pnav-btn">🕯️ Magie Bougie</a>
+  <a href="#purification" class="pnav-btn">💎 Purification & Recharge</a>
+  <a href="#meditation" class="pnav-btn">🧘 Méditation</a>
+  <a href="#affirmations" class="pnav-btn">✨ Affirmations</a>
+</div>
+
+<div class="content-wrap">
+
+  <!-- ======= RITUEL LUNAIRE ======= -->
+  <div class="pratique-bloc" id="rituel-lunaire">
+    <div class="pratique-header">
+      <span class="pratique-icon">🌙</span>
+      <div class="pratique-header-text">
+        <h2>Rituel <em>Lunaire</em></h2>
+        <p>Travaillez avec les cycles de la lune pour manifester, lâcher prise et vous renouveler.</p>
+      </div>
+    </div>
+
+    <p class="pratique-intro">La lune a accompagné les humains depuis la nuit des temps. Ses cycles influencent les marées, les plantes, les animaux… et nos propres énergies. En apprenant à <strong>travailler consciemment avec ces cycles</strong>, vous vous alignez avec un rythme naturel profond qui amplifie vos intentions et facilite les transformations.</p>
+
+    <div class="infos-2col">
+      <div class="info-col">
+        <h4>🌑 Nouvelle Lune — Intention</h4>
+        <ul>
+          <li>Posez vos intentions pour le cycle à venir</li>
+          <li>Écrivez vos désirs et rêves dans un journal</li>
+          <li>Allumez une bougie blanche pour les nouveaux départs</li>
+          <li>Méditez sur ce que vous souhaitez créer</li>
+          <li>Tirez une carte de guidance pour le mois</li>
+        </ul>
+      </div>
+      <div class="info-col">
+        <h4>🌕 Pleine Lune — Libération</h4>
+        <ul>
+          <li>Lâchez ce qui ne vous sert plus</li>
+          <li>Brûlez une liste de ce dont vous voulez vous défaire</li>
+          <li>Rechargez vos cristaux à la lumière lunaire</li>
+          <li>Prenez un bain rituel au sel de mer</li>
+          <li>Célébrez vos avancées avec gratitude</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="etapes-wrap">
+      <h3>✦ Rituel de Nouvelle Lune — Guide Complet</h3>
+      <div class="etape-list">
+        <div class="etape"><div class="etape-num">1</div><div class="etape-content"><h4>Purifiez votre espace</h4><p>Brûlez de la sauge blanche ou du palo santo pour nettoyer les énergies stagnantes. Ouvrez une fenêtre pour laisser partir le vieux et entrer le nouveau.</p></div></div>
+        <div class="etape"><div class="etape-num">2</div><div class="etape-content"><h4>Créez votre espace sacré</h4><p>Disposez des bougies, des cristaux, des fleurs ou tout objet qui vous connecte à votre intention. Cet espace devient votre autel temporaire.</p></div></div>
+        <div class="etape"><div class="etape-num">3</div><div class="etape-content"><h4>Centrez-vous</h4><p>Asseyez-vous confortablement, fermez les yeux et prenez 10 respirations profondes. Sentez votre corps se détendre et votre esprit se calmer.</p></div></div>
+        <div class="etape"><div class="etape-num">4</div><div class="etape-content"><h4>Écrivez vos intentions</h4><p>Sur une feuille ou dans votre journal, écrivez 3 à 7 intentions au présent, comme si elles étaient déjà réalisées. Ex : « Je vis dans l'abondance et la sécurité. »</p></div></div>
+        <div class="etape"><div class="etape-num">5</div><div class="etape-content"><h4>Lisez à voix haute</h4><p>Prononcez vos intentions avec conviction et émotion. La voix ancre les mots dans le réel et leur donne une puissance particulière.</p></div></div>
+        <div class="etape"><div class="etape-num">6</div><div class="etape-content"><h4>Tirez une carte</h4><p>Piochez une carte de tarot ou d'oracle pour recevoir un message de guidance pour ce cycle lunaire. Notez ce qu'elle vous inspire.</p></div></div>
+        <div class="etape"><div class="etape-num">7</div><div class="etape-content"><h4>Clôturez avec gratitude</h4><p>Remerciez l'univers, vos guides ou votre moi supérieur. Soufflez la bougie avec intention — visualisez votre intention qui s'envole vers l'univers.</p></div></div>
+      </div>
+    </div>
+
+    <div class="materiel">
+      <h4>✦ Matériel pour le rituel lunaire</h4>
+      <ul>
+        <li>🕯️ Bougie blanche ou argentée</li>
+        <li>📓 Journal spirituel</li>
+        <li>🌿 Sauge ou palo santo</li>
+        <li>💎 Cristaux (améthyste, quartz rose, pierre de lune)</li>
+        <li>🔮 Jeu de tarot ou oracle</li>
+        <li>🌸 Encens ou huile essentielle</li>
+        <li>🌙 Eau de lune (optionnel)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+
+  <!-- ======= RAMIFICATION / SMUDGING ======= -->
+  <div class="pratique-bloc" id="ramification">
+    <div class="pratique-header">
+      <span class="pratique-icon">🌿</span>
+      <div class="pratique-header-text">
+        <h2><em>Ramification</em> & Fumigation</h2>
+        <p>Purifiez votre espace, votre aura et vos objets par la puissance des plantes sacrées.</p>
+      </div>
+    </div>
+
+    <p class="pratique-intro">La ramification (ou smudging) est une pratique ancestrale utilisée par de nombreuses cultures à travers le monde. Elle consiste à <strong>brûler des herbes ou des résines sacrées</strong> pour purifier un espace, une personne ou des objets des énergies négatives ou stagnantes. La fumée agit comme un nettoyant énergétique puissant.</p>
+
+    <div class="citation">
+      <p>« La fumée ne ment jamais. Elle porte nos prières vers le ciel et emporte avec elle ce qui n'a plus sa place. »</p>
+      <span>— Sagesse traditionnelle</span>
+    </div>
+
+    <div class="techniques-grid">
+      <div class="tech-card">
+        <span class="t-icon">🌿</span>
+        <h3>Sauge Blanche</h3>
+        <p>La plus connue et la plus puissante pour purifier. Elle nettoie en profondeur toutes les énergies négatives. À utiliser avec parcimonie car elle efface tout — le positif aussi.</p>
+      </div>
+      <div class="tech-card">
+        <span class="t-icon">🪵</span>
+        <h3>Palo Santo</h3>
+        <p>Bois sacré d'Amérique du Sud. Plus doux que la sauge, il purifie tout en invitant des énergies positives et créatrices. Son odeur est délicieuse et apaisante.</p>
+      </div>
+      <div class="tech-card">
+        <span class="t-icon">🌱</span>
+        <h3>Encens & Résines</h3>
+        <p>L'encens (nag champa, frankincense, myrrhe) purifie et élève la vibration d'un espace. Les résines brûlées sur charbon sont particulièrement puissantes.</p>
+      </div>
+      <div class="tech-card">
+        <span class="t-icon">💐</span>
+        <h3>Lavande & Romarin</h3>
+        <p>La lavande apporte la paix et l'amour. Le romarin purifie et protège. Ces herbes locales sont d'excellentes alternatives accessibles et efficaces.</p>
+      </div>
+      <div class="tech-card">
+        <span class="t-icon">🌾</span>
+        <h3>Herbe Sainte (Sweetgrass)</h3>
+        <p>Utilisée après la purification pour inviter les bonnes énergies. Son odeur sucrée attire la paix, la sagesse et les guides bienveillants.</p>
+      </div>
+      <div class="tech-card">
+        <span class="t-icon">🫧</span>
+        <h3>Eau Florale & Sel</h3>
+        <p>Vaporisez de l'eau florale (eau de rose, eau de lavande) ou disposez du sel marin dans les coins de la pièce pour une purification douce et continue.</p>
+      </div>
+    </div>
+
+    <div class="etapes-wrap">
+      <h3>✦ Comment purifier votre espace — Étape par étape</h3>
+      <div class="etape-list">
+        <div class="etape"><div class="etape-num">1</div><div class="etape-content"><h4>Préparez-vous</h4><p>Ouvrez toutes les fenêtres et portes pour laisser les énergies s'échapper. Posez votre intention : que souhaitez-vous purifier et pourquoi ?</p></div></div>
+        <div class="etape"><div class="etape-num">2</div><div class="etape-content"><h4>Allumez votre plante sacrée</h4><p>Allumez la sauge ou le palo santo, laissez-le prendre feu puis soufflez doucement pour obtenir de la fumée. Placez-le dans un bol résistant à la chaleur.</p></div></div>
+        <div class="etape"><div class="etape-num">3</div><div class="etape-content"><h4>Purifiez-vous d'abord</h4><p>Commencez par vous purifier vous-même. Guidez la fumée autour de votre corps de bas en haut, en insistant sur la tête, les mains et le cœur.</p></div></div>
+        <div class="etape"><div class="etape-num">4</div><div class="etape-content"><h4>Parcourez l'espace dans le sens des aiguilles</h4><p>Allez dans le sens des aiguilles d'une montre. Insistez sur les coins (où les énergies stagnent), les portes et les fenêtres.</p></div></div>
+        <div class="etape"><div class="etape-num">5</div><div class="etape-content"><h4>Énoncez votre intention</h4><p>Pendant que vous purifiez, dites à voix haute ou en pensée : « Que tout ce qui n'est plus à sa place parte avec cette fumée. Que seul l'amour et la lumière demeurent. »</p></div></div>
+        <div class="etape"><div class="etape-num">6</div><div class="etape-content"><h4>Fermez le rituel</h4><p>Éteignez votre sauge ou palo santo en le pressant dans le bol. Remerciez les plantes pour leur travail. Laissez les fenêtres ouvertes encore quelques minutes.</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+
+  <!-- ======= MAGIE BOUGIE ======= -->
+  <div class="pratique-bloc" id="magie-bougie">
+    <div class="pratique-header">
+      <span class="pratique-icon">🕯️</span>
+      <div class="pratique-header-text">
+        <h2>Magie des <em>Bougies</em></h2>
+        <p>L'un des outils de manifestation les plus anciens et les plus accessibles.</p>
+      </div>
+    </div>
+
+    <p class="pratique-intro">La magie des bougies repose sur un principe simple : <strong>la flamme concentre et amplifie votre intention</strong>. Quand vous allumez une bougie avec une intention claire et une émotion sincère, vous envoyez un signal puissant à l'univers. C'est une pratique accessible à tous, qui ne demande aucun outil spécial si ce n'est une bougie et votre cœur.</p>
+
+    <div class="infos-2col">
+      <div class="info-col">
+        <h4>🎨 Couleurs & Intentions</h4>
+        <ul>
+          <li><strong>Blanche</strong> — Pureté, protection, nouveaux départs</li>
+          <li><strong>Rouge</strong> — Amour passionnel, courage, force</li>
+          <li><strong>Orange</strong> — Créativité, succès, communication</li>
+          <li><strong>Jaune</strong> — Clarté mentale, joie, confiance</li>
+          <li><strong>Verte</strong> — Abondance, guérison, prospérité</li>
+          <li><strong>Bleue</strong> — Paix, vérité, harmonie</li>
+          <li><strong>Violette</strong> — Spiritualité, intuition, sagesse</li>
+          <li><strong>Rose</strong> — Amour doux, amour de soi, compassion</li>
+          <li><strong>Noire</strong> — Protection, banissement, lâcher prise</li>
+          <li><strong>Dorée</strong> — Abondance divine, succès, lumière</li>
+        </ul>
+      </div>
+      <div class="info-col">
+        <h4>🌿 Huiles pour charger les bougies</h4>
+        <ul>
+          <li><strong>Rose</strong> — Amour, harmonie, douceur</li>
+          <li><strong>Lavande</strong> — Paix, purification, sommeil</li>
+          <li><strong>Citron</strong> — Clarté, énergie, purification</li>
+          <li><strong>Ylang-ylang</strong> — Sensualité, joie, créativité</li>
+          <li><strong>Frankincense</strong> — Spiritualité, protection, élévation</li>
+          <li><strong>Patchouli</strong> — Ancrage, abondance, sensualité</li>
+          <li><strong>Menthe</strong> — Prospérité, succès, vitalité</li>
+          <li><strong>Jasmin</strong> — Amour, intuition, prophétie</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="etapes-wrap">
+      <h3>✦ Rituel de la Bougie — Comment procéder</h3>
+      <div class="etape-list">
+        <div class="etape"><div class="etape-num">1</div><div class="etape-content"><h4>Choisissez votre bougie</h4><p>Sélectionnez la couleur qui correspond à votre intention. Si vous n'avez que du blanc, elle convient pour tout.</p></div></div>
+        <div class="etape"><div class="etape-num">2</div><div class="etape-content"><h4>Chargez-la de votre intention</h4><p>Tenez la bougie dans vos deux mains. Fermez les yeux et visualisez votre intention avec précision et émotion pendant 1 à 2 minutes.</p></div></div>
+        <div class="etape"><div class="etape-num">3</div><div class="etape-content"><h4>Gravez un symbole (optionnel)</h4><p>Avec une épingle, gravez un mot, un symbole ou une rune qui représente votre intention. Cela ancre le message dans la bougie.</p></div></div>
+        <div class="etape"><div class="etape-num">4</div><div class="etape-content"><h4>Enduisez d'huile</h4><p>Appliquez une huile essentielle correspondante du centre vers les extrémités. Ne jamais aller et venir — choisissez un sens et restez constant.</p></div></div>
+        <div class="etape"><div class="etape-num">5</div><div class="etape-content"><h4>Allumez avec intention</h4><p>En allumant la bougie, répétez votre intention à voix haute 3 fois. Sentez-la comme déjà réalisée dans votre corps.</p></div></div>
+        <div class="etape"><div class="etape-num">6</div><div class="etape-content"><h4>Observez la flamme</h4><p>Une flamme haute et stable = bonne énergie. Une flamme qui vacille = résistances à surmonter. Méditez pendant que la bougie brûle.</p></div></div>
+        <div class="etape"><div class="etape-num">7</div><div class="etape-content"><h4>Éteignez avec respect</h4><p>Ne soufflez jamais une bougie rituelle — vous disperseriez l'intention. Utilisez vos doigts ou un éteignoir. Dites merci avant d'éteindre.</p></div></div>
+      </div>
+    </div>
+
+    <div class="alerte">
+      <span class="a-icon">⚠️</span>
+      <p>Ne laissez jamais une bougie allumée sans surveillance. Utilisez toujours un chandelier stable et résistant à la chaleur, loin des matières inflammables. La sécurité avant tout !</p>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+
+  <!-- ======= PURIFICATION & RECHARGE ======= -->
+  <div class="pratique-bloc" id="purification">
+    <div class="pratique-header">
+      <span class="pratique-icon">💎</span>
+      <div class="pratique-header-text">
+        <h2>Purification & <em>Recharge</em> Énergétique</h2>
+        <p>Nettoyez et rechargez votre énergie personnelle, vos cristaux et votre espace de vie.</p>
+      </div>
+    </div>
+
+    <p class="pratique-intro">Tout comme vous vous lavez le corps chaque jour, votre <strong>corps énergétique a besoin d'être nettoyé régulièrement</strong>. Les interactions quotidiennes, les émotions non traitées et les environnements chargés laissent des traces dans votre aura. La purification est l'art de libérer ces résidus pour retrouver votre état naturel de légèreté et d'alignement.</p>
+
+    <div class="techniques-grid">
+      <div class="tech-card">
+        <span class="t-icon">🛁</span>
+        <h3>Bain Rituel</h3>
+        <p>Le bain est l'un des moyens les plus puissants de purification. Ajoutez du sel de mer, des huiles essentielles, des pétales de roses et une bougie. Visualisez toutes les énergies négatives qui quittent votre corps avec l'eau.</p>
+      </div>
+      <div class="tech-card">
+        <span class="t-icon">🌊</span>
+        <h3>Eau & Sel</h3>
+        <p>Aspergez-vous d'eau bénite ou d'eau salée. Placez du sel dans les coins de votre pièce pour absorber les énergies denses. Changez-le régulièrement (toutes les semaines ou à la pleine lune).</p>
+      </div>
+      <div class="tech-card">
+        <span class="t-icon">🧘</span>
+        <h3>Respiration consciente</h3>
+        <p>La respiration est l'outil de purification le plus accessible. Inspirez de la lumière dorée, expirez les tensions et énergies sombres. Pratiquez 10 cycles intentionnels matin et soir.</p>
+      </div>
+      <div class="tech-card">
+        <span class="t-icon">🌳</span>
+        <h3>Ancrage dans la Nature</h3>
+        <p>Marchez pieds nus sur la terre, étreignez un arbre, asseyez-vous près d'un cours d'eau. La nature est le purificateur et le rechargeur le plus naturel qui soit.</p>
+      </div>
+      <div class="tech-card">
+        <span class="t-icon">🔔</span>
+        <h3>Sons & Vibrations</h3>
+        <p>Le son du bol tibétain, du diapason ou de la musique binaurale nettoie les corps subtils par les vibrations. Un bain sonore hebdomadaire peut transformer votre état énergétique.</p>
+      </div>
+      <div class="tech-card">
+        <span class="t-icon">☀️</span>
+        <h3>Lumière Solaire & Lunaire</h3>
+        <p>Exposez-vous consciemment à la lumière du soleil en visualisant qu'elle remplit chaque cellule de votre corps de lumière dorée et purificatrice. La pleine lune purifie et recharge la nuit.</p>
+      </div>
+    </div>
+
+    <div class="etapes-wrap">
+      <h3>✦ Purification de l'aura — Technique quotidienne</h3>
+      <div class="etape-list">
+        <div class="etape"><div class="etape-num">1</div><div class="etape-content"><h4>Ancrez-vous</h4><p>Debout, pieds nus si possible, visualisez des racines qui partent de vos pieds et s'enfoncent jusqu'au cœur de la Terre.</p></div></div>
+        <div class="etape"><div class="etape-num">2</div><div class="etape-content"><h4>Appelez la lumière</h4><p>Visualisez une lumière blanche ou dorée qui descend du cosmos, entre par le sommet de votre crâne et se répand dans tout votre corps.</p></div></div>
+        <div class="etape"><div class="etape-num">3</div><p>Avec vos mains, balayez lentement votre aura de haut en bas, à 10 cm de votre corps. Secouez vos mains au sol après chaque passage pour libérer ce que vous avez capté.</p></div>
+        <div class="etape"><div class="etape-num">4</div><div class="etape-content"><h4>Remplissez de lumière</h4><p>Visualisez maintenant votre aura comme une bulle de lumière brillante qui vous entoure et vous protège. Choisissez sa couleur selon votre besoin du moment.</p></div></div>
+        <div class="etape"><div class="etape-num">5</div><div class="etape-content"><h4>Remerciez</h4><p>Posez les mains sur votre cœur et remerciez. Cette pratique prend moins de 5 minutes et peut être faite chaque matin.</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+
+  <!-- ======= MÉDITATION ======= -->
+  <div class="pratique-bloc" id="meditation">
+    <div class="pratique-header">
+      <span class="pratique-icon">🧘</span>
+      <div class="pratique-header-text">
+        <h2>Méditation & <em>Pleine Conscience</em></h2>
+        <p>Entrez en contact avec votre monde intérieur et cultivez la paix au quotidien.</p>
+      </div>
+    </div>
+
+    <p class="pratique-intro">La méditation n'est pas de vider son esprit — c'est d'<strong>observer ses pensées sans s'y attacher</strong>. C'est la pratique la plus fondamentale pour développer la conscience de soi, réduire le stress et approfondir votre connexion spirituelle. Même 5 minutes par jour peuvent transformer votre relation à vous-même.</p>
+
+    <div class="techniques-grid">
+      <div class="tech-card">
+        <span class="t-icon">🌬️</span>
+        <h3>Méditation par la Respiration</h3>
+        <p>La plus simple et la plus efficace pour les débutants. Focalisez toute votre attention sur votre respiration. Quand l'esprit divague (et il le fera !), ramenez-le doucement sans jugement.</p>
+      </div>
+      <div class="tech-card">
+        <span class="t-icon">🌈</span>
+        <h3>Scan Corporel</h3>
+        <p>Parcourez mentalement votre corps de la tête aux pieds. Observez les sensations, les tensions, les zones d'énergie. Cette pratique reconnecte à votre corps et libère les tensions accumulées.</p>
+      </div>
+      <div class="tech-card">
+        <span class="t-icon">💜</span>
+        <h3>Méditation des Chakras</h3>
+        <p>Concentrez-vous sur chaque chakra l'un après l'autre, de la racine à la couronne. Visualisez chaque centre lumineux, actif et équilibré. Idéale le matin pour aligner les énergies.</p>
+      </div>
+      <div class="tech-card">
+        <span class="t-icon">🌟</span>
+        <h3>Visualisation Guidée</h3>
+        <p>Fermez les yeux et voyagez dans un paysage intérieur — une forêt, une plage, un temple. Laissez votre imagination vous guider vers des messages et des insights profonds.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+
+  <!-- ======= AFFIRMATIONS ======= -->
+  <div class="pratique-bloc" id="affirmations">
+    <div class="pratique-header">
+      <span class="pratique-icon">✨</span>
+      <div class="pratique-header-text">
+        <h2><em>Affirmations</em> Positives</h2>
+        <p>Reprogrammez votre subconscient par la puissance des mots et des croyances.</p>
+      </div>
+    </div>
+
+    <p class="pratique-intro">Une affirmation est une <strong>déclaration positive au présent</strong> qui aide à reprogrammer les croyances limitantes de l'inconscient. Répétée avec régularité et sincérité, elle crée de nouveaux sillons neuronaux et transforme progressivement votre relation à vous-même et à la vie.</p>
+
+    <div class="infos-2col">
+      <div class="info-col">
+        <h4>💫 Affirmations d'Amour de Soi</h4>
+        <ul>
+          <li>Je m'aime et je m'accepte tel(le) que je suis</li>
+          <li>Je mérite le bonheur, l'amour et l'abondance</li>
+          <li>Mon corps est un temple sacré que j'honore</li>
+          <li>Je suis digne d'être vu(e) et entendu(e)</li>
+          <li>Je me pardonne et j'avance avec légèreté</li>
+        </ul>
+      </div>
+      <div class="info-col">
+        <h4>🌙 Affirmations Spirituelles</h4>
+        <ul>
+          <li>Je suis guidé(e) et protégé(e) à chaque instant</li>
+          <li>Mon intuition est ma boussole la plus fiable</li>
+          <li>Je fais confiance au timing de l'univers</li>
+          <li>Je suis en paix avec ce qui est</li>
+          <li>La lumière que je cherche est déjà en moi</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="etapes-wrap">
+      <h3>✦ Comment pratiquer les affirmations efficacement</h3>
+      <div class="etape-list">
+        <div class="etape"><div class="etape-num">1</div><div class="etape-content"><h4>Choisissez 3 affirmations maximum</h4><p>Trop d'affirmations dispersent l'énergie. Choisissez 3 affirmations qui résonnent vraiment avec ce dont vous avez besoin en ce moment.</p></div></div>
+        <div class="etape"><div class="etape-num">2</div><div class="etape-content"><h4>Devant le miroir, matin et soir</h4><p>Regardez-vous dans les yeux et prononcez vos affirmations à voix haute. Le contact visuel avec soi-même amplifie considérablement l'impact.</p></div></div>
+        <div class="etape"><div class="etape-num">3</div><div class="etape-content"><h4>Ressentez-les dans votre corps</h4><p>Ne les récitez pas mécaniquement. Cherchez la sensation physique qui correspond à chaque affirmation — la chaleur du cœur, la détente des épaules, le sourire qui vient.</p></div></div>
+        <div class="etape"><div class="etape-num">4</div><div class="etape-content"><h4>Soyez patient(e) et constant(e)</h4><p>La reprogrammation subconsciente prend du temps — minimum 21 jours de pratique quotidienne. La régularité compte plus que l'intensité.</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-pages">
+    <a href="lumiere-interieure.html" class="nav-page-btn"><span class="arrow">←</span> Retour à l'accueil</a>
+    <a href="rituels-lunaires.html" class="nav-page-btn">Rituels Lunaires détaillés <span class="arrow">→</span></a>
+  </div>
+
+</div>
+
+<footer-mini>© 2026 Lumière Intérieure · Tous droits réservés 🌙</footer-mini>
+
+<script>
+// Smooth scroll pour la nav rapide
+document.querySelectorAll('.pnav-btn').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(btn.getAttribute('href'));
+    if(target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// Fade in au scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.pratique-bloc').forEach(el => {
+  el.style.opacity='0'; el.style.transform='translateY(24px)';
+  el.style.transition='opacity 0.7s ease, transform 0.7s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>

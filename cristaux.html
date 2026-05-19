@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cristaux & Lithothérapie — Lumière Intérieure</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--or:#C9A96E;--or-clair:#E8D5B0;--nuit:#0D0A1A;--nuit-mid:#1A1428;--creme:#FAF6EE;--text-doux:#8B7FA8}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--nuit);color:var(--creme);overflow-x:hidden}
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(13,10,26,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,169,110,0.2);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--or);text-decoration:none}
+.logo span{font-style:italic;color:var(--or-clair)}
+.nav-back{color:var(--text-doux);text-decoration:none;font-size:0.85rem;transition:color 0.2s}
+.nav-back:hover{color:var(--or)}
+.hero-page{padding:140px 5% 80px;text-align:center;background:radial-gradient(ellipse at 50% 30%,rgba(74,48,96,0.4) 0%,transparent 70%)}
+.page-tag{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--or);margin-bottom:1rem;display:block}
+.page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:300;color:var(--creme);line-height:1.2;margin-bottom:1rem}
+.page-title em{font-style:italic;color:var(--or)}
+.page-intro{color:var(--text-doux);font-size:1.05rem;line-height:1.9;max-width:700px;margin:0 auto;font-family:'Cormorant Garamond',serif;font-style:italic}
+.divider{width:60px;height:1px;background:var(--or);margin:1.5rem auto;opacity:0.5}
+.content-wrap{max-width:1060px;margin:0 auto;padding:0 5% 100px}
+.section-label{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--or);margin:50px 0 24px;display:block}
+.intro-p{color:var(--text-doux);line-height:1.95;font-size:0.97rem;margin-bottom:2rem;max-width:780px}
+.intro-p strong{color:var(--or-clair);font-weight:500}
+.cristaux-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-bottom:60px}
+.cristal-card{background:rgba(255,255,255,0.02);border:1px solid rgba(201,169,110,0.15);border-radius:4px;padding:24px;transition:all 0.3s;position:relative}
+.cristal-card:hover{background:rgba(74,48,96,0.2);border-color:rgba(201,169,110,0.4);transform:translateY(-3px)}
+.cristal-top{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.cristal-gem{font-size:2rem}
+.cristal-color{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+.cristal-card h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--creme);font-weight:400;margin-bottom:4px}
+.cristal-card .c-type{font-size:0.72rem;color:var(--text-doux);letter-spacing:0.1em}
+.cristal-card p{font-size:0.84rem;color:var(--text-doux);line-height:1.75;margin-bottom:12px}
+.cristal-tags{display:flex;flex-wrap:wrap;gap:6px}
+.ctag{font-size:0.7rem;color:var(--or);border:1px solid rgba(201,169,110,0.25);padding:3px 10px;border-radius:20px}
+.purif-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-bottom:60px}
+.purif-card{padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:4px;transition:all 0.3s}
+.purif-card:hover{background:rgba(74,48,96,0.15);border-color:rgba(201,169,110,0.25)}
+.purif-card .p-icon{font-size:1.8rem;display:block;margin-bottom:0.8rem}
+.purif-card h3{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--creme);font-weight:400;margin-bottom:0.5rem}
+.purif-card p{font-size:0.83rem;color:var(--text-doux);line-height:1.75}
+.nav-pages{display:flex;justify-content:space-between;align-items:center;padding:40px 0;border-top:1px solid rgba(201,169,110,0.15);margin-top:40px;flex-wrap:wrap;gap:16px}
+.nav-page-btn{display:flex;align-items:center;gap:10px;color:var(--text-doux);text-decoration:none;font-size:0.85rem;transition:color 0.2s}
+.nav-page-btn:hover{color:var(--or)}
+.nav-page-btn .arrow{color:var(--or)}
+footer-mini{display:block;text-align:center;padding:30px;border-top:1px solid rgba(255,255,255,0.05);color:var(--text-doux);font-size:0.8rem}
+</style>
+</head>
+<body>
+<nav>
+ <a href="index.html" class="logo">🌙 <span>Lumière</span> Intérieurep</a>
+  <a href="index.html#categories" class="nav-back">← Retour au site</a>
+</nav>
+<div class="hero-page">
+  <span class="page-tag">✦ Pierres & Énergie ✦</span>
+  <h1 class="page-title">Cristaux & <em>Lithothérapie</em></h1>
+  <div class="divider"></div>
+  <p class="page-intro">Les cristaux et les pierres sont des alliés énergétiques millénaires. Chacun possède une vibration unique qui peut soutenir, guérir et amplifier vos intentions.</p>
+</div>
+<div class="content-wrap">
+  <p class="intro-p">La lithothérapie est une pratique de bien-être qui utilise les <strong>propriétés vibratoires des pierres et des cristaux</strong> pour soutenir l'équilibre physique, émotionnel et spirituel. Chaque pierre a été formée pendant des millions d'années dans les profondeurs de la Terre et porte en elle une énergie unique.</p>
+
+  <span class="section-label">✦ Les cristaux essentiels</span>
+  <div class="cristaux-grid">
+    <div class="cristal-card">
+      <div class="cristal-top"><span class="cristal-gem">💜</span><div class="cristal-color" style="background:#9B59B6"></div></div>
+      <h3>Améthyste</h3><div class="c-type">Quartz violet · Protection & Intuition</div>
+      <p>L'améthyste est la pierre de la sérénité et de la spiritualité. Elle calme l'esprit, favorise le sommeil réparateur, développe l'intuition et offre une puissante protection énergétique. Idéale pour la méditation et le travail avec le troisième œil.</p>
+      <div class="cristal-tags"><span class="ctag">Protection</span><span class="ctag">Intuition</span><span class="ctag">Sommeil</span><span class="ctag">Méditation</span></div>
+    </div>
+    <div class="cristal-card">
+      <div class="cristal-top"><span class="cristal-gem">🩷</span><div class="cristal-color" style="background:#F4A7B9"></div></div>
+      <h3>Quartz Rose</h3><div class="c-type">Quartz rose · Amour & Guérison</div>
+      <p>Le quartz rose est la pierre de l'amour inconditionnel. Il ouvre et guérit le chakra cœur, favorise l'amour de soi, attire les relations harmonieuses et aide à guérir les blessures émotionnelles anciennes. Douceur et compassion sont ses maîtres mots.</p>
+      <div class="cristal-tags"><span class="ctag">Amour</span><span class="ctag">Guérison</span><span class="ctag">Douceur</span><span class="ctag">Confiance</span></div>
+    </div>
+    <div class="cristal-card">
+      <div class="cristal-top"><span class="cristal-gem">🤍</span><div class="cristal-color" style="background:#F0EDD4"></div></div>
+      <h3>Cristal de Roche</h3><div class="c-type">Quartz clair · Amplification & Clarté</div>
+      <p>Le cristal de roche est le maître des cristaux. Il amplifie l'énergie de toutes les autres pierres, clarifie les pensées, purifie l'espace et agit comme un amplificateur d'intentions. Indispensable dans toute collection.</p>
+      <div class="cristal-tags"><span class="ctag">Amplification</span><span class="ctag">Clarté</span><span class="ctag">Purification</span><span class="ctag">Universel</span></div>
+    </div>
+    <div class="cristal-card">
+      <div class="cristal-top"><span class="cristal-gem">🌙</span><div class="cristal-color" style="background:#D4C5E2"></div></div>
+      <h3>Pierre de Lune</h3><div class="c-type">Feldspath · Intuition & Féminité</div>
+      <p>La pierre de lune est profondément liée aux cycles lunaires et à l'énergie féminine. Elle développe l'intuition, équilibre les émotions, favorise la fertilité et accompagne les transitions de vie avec grâce.</p>
+      <div class="cristal-tags"><span class="ctag">Intuition</span><span class="ctag">Cycles lunaires</span><span class="ctag">Émotions</span><span class="ctag">Féminin</span></div>
+    </div>
+    <div class="cristal-card">
+      <div class="cristal-top"><span class="cristal-gem">🟡</span><div class="cristal-color" style="background:#F7D060"></div></div>
+      <h3>Citrine</h3><div class="c-type">Quartz jaune · Abondance & Joie</div>
+      <p>La citrine est la pierre du soleil et de l'abondance. Elle attire la prospérité, stimule la confiance en soi, apporte joie et optimisme. Elle est l'une des rares pierres qui ne s'épuise jamais et n'a pas besoin d'être purifiée.</p>
+      <div class="cristal-tags"><span class="ctag">Abondance</span><span class="ctag">Joie</span><span class="ctag">Confiance</span><span class="ctag">Énergie</span></div>
+    </div>
+    <div class="cristal-card">
+      <div class="cristal-top"><span class="cristal-gem">⚫</span><div class="cristal-color" style="background:#2C2C2C"></div></div>
+      <h3>Obsidienne</h3><div class="c-type">Verre volcanique · Protection & Vérité</div>
+      <p>L'obsidienne est un bouclier énergétique puissant. Elle absorbe les énergies négatives, ancre dans la réalité, révèle les vérités cachées et aide à travailler avec sa shadow. À utiliser avec intention et précaution.</p>
+      <div class="cristal-tags"><span class="ctag">Protection</span><span class="ctag">Ancrage</span><span class="ctag">Vérité</span><span class="ctag">Shadow work</span></div>
+    </div>
+    <div class="cristal-card">
+      <div class="cristal-top"><span class="cristal-gem">🔵</span><div class="cristal-color" style="background:#1F4E8C"></div></div>
+      <h3>Lapis-Lazuli</h3><div class="c-type">Roche bleue · Sagesse & Expression</div>
+      <p>Le lapis-lazuli est la pierre de la sagesse et de la vérité. Il active le chakra gorge pour une communication authentique, stimule le troisième œil et a été utilisé par les pharaons égyptiens comme symbole de pouvoir divin.</p>
+      <div class="cristal-tags"><span class="ctag">Sagesse</span><span class="ctag">Communication</span><span class="ctag">Vérité</span><span class="ctag">Psychisme</span></div>
+    </div>
+    <div class="cristal-card">
+      <div class="cristal-top"><span class="cristal-gem">🌈</span><div class="cristal-color" style="background:#8B7355"></div></div>
+      <h3>Labradorite</h3><div class="c-type">Feldspath irisé · Magie & Transformation</div>
+      <p>La labradorite est la pierre de la magie et de la transformation. Elle protège l'aura, développe les dons psychiques, aide lors des périodes de changement et révèle la magie cachée dans le quotidien.</p>
+      <div class="cristal-tags"><span class="ctag">Magie</span><span class="ctag">Transformation</span><span class="ctag">Aura</span><span class="ctag">Psychisme</span></div>
+    </div>
+    <div class="cristal-card">
+      <div class="cristal-top"><span class="cristal-gem">🤍</span><div class="cristal-color" style="background:#F5F0E8"></div></div>
+      <h3>Sélénite</h3><div class="c-type">Gypse blanc · Purification & Lumière</div>
+      <p>La sélénite est une pierre de haute vibration, directement reliée à l'énergie lunaire. Elle purifie l'espace, nettoie les autres cristaux, favorise la clarté mentale et la connexion aux royaumes supérieurs.</p>
+      <div class="cristal-tags"><span class="ctag">Purification</span><span class="ctag">Lumière</span><span class="ctag">Clarté</span><span class="ctag">Connexion</span></div>
+    </div>
+  </div>
+
+  <span class="section-label">✦ Comment purifier et recharger vos cristaux</span>
+  <div class="purif-grid">
+    <div class="purif-card"><span class="p-icon">🌕</span><h3>Lumière de Lune</h3><p>Posez vos cristaux à l'extérieur ou près d'une fenêtre la nuit de pleine lune. C'est la méthode la plus douce et la plus complète, adaptée à presque toutes les pierres.</p></div>
+    <div class="purif-card"><span class="p-icon">🌿</span><h3>Fumigation (Smudging)</h3><p>Passez vos cristaux dans la fumée de sauge blanche, de palo santo ou d'encens. Visualisez les énergies stagnantes qui se dissipent dans la fumée.</p></div>
+    <div class="purif-card"><span class="p-icon">🌊</span><h3>Eau courante</h3><p>Rincez vos cristaux sous l'eau froide courante pendant quelques minutes. Attention : certaines pierres comme la sélénite et la malachite ne supportent pas l'eau.</p></div>
+    <div class="purif-card"><span class="p-icon">🌍</span><h3>Enterrement dans la Terre</h3><p>Enterrez vos cristaux dans la terre pendant 24h à une semaine. La Terre absorbe les énergies négatives et redonne leur vitalité naturelle aux pierres.</p></div>
+    <div class="purif-card"><span class="p-icon">🔔</span><h3>Sons & Vibrations</h3><p>Un bol tibétain, un diapason ou même de la musique harmonieuse peut purifier vos cristaux par les vibrations sonores. Efficace pour toutes les pierres.</p></div>
+    <div class="purif-card"><span class="p-icon">🤍</span><h3>Sélénite</h3><p>Posez vos cristaux sur une plaque ou près d'une baguette de sélénite pendant plusieurs heures. La sélénite est le seul cristal qui purifie les autres sans avoir besoin d'être rechargée.</p></div>
+  </div>
+
+  <div class="nav-pages">
+    <a href="rituels-lunaires.html" class="nav-page-btn"><span class="arrow">←</span> Rituels Lunaires</a>
+    <a href="numerologie.html" class="nav-page-btn">Numérologie & Astrologie <span class="arrow">→</span></a>
+  </div>
+</div>
+<footer-mini>© 2026 Lumière Intérieure · Tous droits réservés 🌙</footer-mini>
+</body>
+</html>

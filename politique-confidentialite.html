@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politique de Confidentialité — Lumière Intérieure</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--or:#C9A96E;--or-clair:#E8D5B0;--nuit:#0D0A1A;--nuit-mid:#1A1428;--creme:#FAF6EE;--text-doux:#8B7FA8}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--nuit);color:var(--creme);overflow-x:hidden}
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(13,10,26,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,169,110,0.2);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--or);text-decoration:none}
+.logo span{font-style:italic;color:var(--or-clair)}
+.nav-back{color:var(--text-doux);text-decoration:none;font-size:0.85rem;transition:color 0.2s}
+.nav-back:hover{color:var(--or)}
+.hero-page{padding:140px 5% 60px;text-align:center;background:radial-gradient(ellipse at 50% 30%,rgba(74,48,96,0.3) 0%,transparent 70%)}
+.page-tag{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--or);margin-bottom:1rem;display:block}
+.page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:300;color:var(--creme);line-height:1.2;margin-bottom:1rem}
+.page-title em{font-style:italic;color:var(--or)}
+.page-intro{color:var(--text-doux);font-size:0.9rem;line-height:1.8;max-width:600px;margin:0 auto}
+.divider{width:60px;height:1px;background:var(--or);margin:1.5rem auto;opacity:0.5}
+.last-update{font-size:0.75rem;color:var(--text-doux);opacity:0.7;margin-top:1rem}
+
+/* NAV RAPIDE */
+.page-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:0 5% 50px;max-width:860px;margin:0 auto}
+.pnav-btn{background:transparent;border:1px solid rgba(201,169,110,0.25);color:var(--text-doux);padding:7px 16px;border-radius:20px;font-size:0.75rem;cursor:pointer;text-decoration:none;transition:all 0.3s;font-family:'Jost',sans-serif}
+.pnav-btn:hover{border-color:var(--or);color:var(--or)}
+
+/* CONTENU */
+.content-wrap{max-width:800px;margin:0 auto;padding:0 5% 100px}
+.chapter{margin-bottom:50px;scroll-margin-top:90px}
+.chapter h2{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--creme);margin-bottom:1.2rem;padding-bottom:0.8rem;border-bottom:1px solid rgba(201,169,110,0.15);display:flex;align-items:center;gap:12px}
+.chapter h2 em{font-style:italic;color:var(--or)}
+.chapter h2 span{font-size:1.2rem}
+.chapter p{color:var(--text-doux);line-height:1.95;font-size:0.93rem;margin-bottom:1rem}
+.chapter p strong{color:var(--or-clair);font-weight:500}
+.chapter ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin:1rem 0}
+.chapter ul li{font-size:0.88rem;color:var(--text-doux);display:flex;gap:10px;line-height:1.7}
+.chapter ul li::before{content:'✦';color:var(--or);font-size:0.55rem;margin-top:5px;flex-shrink:0}
+.chapter ul li strong{color:var(--creme);font-weight:500}
+.info-box{background:rgba(74,48,96,0.15);border:1px solid rgba(201,169,110,0.2);border-radius:4px;padding:20px 24px;margin:1.5rem 0}
+.info-box p{font-size:0.88rem;color:var(--text-doux);line-height:1.8;margin:0}
+.info-box p strong{color:var(--or-clair);font-weight:500}
+.contact-box{background:rgba(255,255,255,0.02);border:1px solid rgba(201,169,110,0.2);border-radius:4px;padding:24px;margin:1.5rem 0;text-align:center}
+.contact-box p{font-size:0.88rem;color:var(--text-doux);line-height:1.8;margin-bottom:0.5rem}
+.contact-box a{color:var(--or-clair);text-decoration:none;font-size:0.95rem}
+.contact-box a:hover{color:var(--or)}
+
+/* SÉPARATEUR */
+.sep{height:1px;background:linear-gradient(to right,transparent,rgba(201,169,110,0.2),transparent);margin:60px 0}
+
+/* COOKIES */
+.cookies-table{width:100%;border-collapse:collapse;margin:1.5rem 0}
+.cookies-table th{font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--or);padding:10px 14px;text-align:left;border-bottom:1px solid rgba(201,169,110,0.2)}
+.cookies-table td{font-size:0.83rem;color:var(--text-doux);padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.04);line-height:1.6}
+.cookies-table tr:last-child td{border-bottom:none}
+.tag-n{display:inline-block;font-size:0.68rem;padding:2px 8px;border-radius:10px;background:rgba(50,205,50,0.15);color:#32CD32;border:1px solid rgba(50,205,50,0.3)}
+.tag-o{display:inline-block;font-size:0.68rem;padding:2px 8px;border-radius:10px;background:rgba(255,215,0,0.1);color:#FFD700;border:1px solid rgba(255,215,0,0.3)}
+
+/* BOUTON GÉRER */
+.rgpd-btn{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid rgba(201,169,110,0.4);color:var(--or);padding:12px 24px;border-radius:2px;font-size:0.82rem;letter-spacing:0.1em;cursor:pointer;font-family:'Jost',sans-serif;transition:all 0.3s;margin-top:1rem}
+.rgpd-btn:hover{background:rgba(201,169,110,0.1);border-color:var(--or)}
+
+/* NAV PAGES */
+.nav-pages{display:flex;justify-content:space-between;align-items:center;padding:40px 0;border-top:1px solid rgba(201,169,110,0.15);margin-top:40px;flex-wrap:wrap;gap:16px}
+.nav-page-btn{display:flex;align-items:center;gap:10px;color:var(--text-doux);text-decoration:none;font-size:0.85rem;transition:color 0.2s}
+.nav-page-btn:hover{color:var(--or)}
+.nav-page-btn .arrow{color:var(--or)}
+footer-mini{display:block;text-align:center;padding:30px;border-top:1px solid rgba(255,255,255,0.05);color:var(--text-doux);font-size:0.8rem}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">🌙 <span>Lumière</span> Intérieurep</a>
+  <a href="index.html" class="nav-back">← Retour à l'accueil</a>
+</nav>
+
+<div class="hero-page">
+  <span class="page-tag">✦ Légal & Confidentialité ✦</span>
+  <h1 class="page-title">Politique de <em>Confidentialité</em></h1>
+  <div class="divider"></div>
+  <p class="page-intro">Votre vie privée est précieuse. Cette page vous explique clairement quelles données nous collectons, pourquoi, et comment vous pouvez les gérer.</p>
+  <p class="last-update">Dernière mise à jour : mai 2026</p>
+</div>
+
+<!-- Navigation rapide -->
+<div class="page-nav">
+  <a href="#donnees" class="pnav-btn">Données collectées</a>
+  <a href="#finalites" class="pnav-btn">Finalités</a>
+  <a href="#droits" class="pnav-btn">Vos droits RGPD</a>
+  <a href="#cookies" class="pnav-btn">Cookies</a>
+  <a href="#securite" class="pnav-btn">Sécurité</a>
+  <a href="#contact-rgpd" class="pnav-btn">Contact</a>
+  <a href="#mentions" class="pnav-btn">Mentions légales</a>
+</div>
+
+<div class="content-wrap">
+
+  <!-- 1 - PRÉSENTATION -->
+  <div class="chapter" id="presentation">
+    <h2><span>🌙</span> Présentation du site</h2>
+    <p>Le site <strong>Lumière Intérieure</strong> est un espace dédié à la spiritualité, au tarot, aux pratiques énergétiques et au bien-être. Il est édité par une personne physique basée en France.</p>
+    <p>Pour toute question relative à la présente politique de confidentialité, vous pouvez nous contacter à l'adresse : <strong>pa-signature@outlook.fr</strong></p>
+    <div class="info-box">
+      <p>Cette politique de confidentialité a été rédigée conformément au <strong>Règlement Général sur la Protection des Données (RGPD)</strong> du 25 mai 2018 et à la loi française <strong>Informatique et Libertés</strong>.</p>
+    </div>
+  </div>
+
+  <!-- 2 - DONNÉES COLLECTÉES -->
+  <div class="chapter" id="donnees">
+    <h2><span>📋</span> Données <em>Collectées</em></h2>
+    <p>Dans le cadre de l'utilisation du site, nous sommes susceptibles de collecter les données personnelles suivantes :</p>
+    <ul>
+      <li><strong>Adresse email</strong> — Lorsque vous vous inscrivez pour recevoir la carte du jour, un PDF gratuit ou notre newsletter.</li>
+      <li><strong>Prénom</strong> — Si vous le renseignez volontairement dans un formulaire d'inscription.</li>
+      <li><strong>Données de navigation</strong> — Adresse IP, type de navigateur, pages visitées, via des outils d'analyse anonymisés.</li>
+      <li><strong>Données de formulaire</strong> — Toute information que vous nous transmettez volontairement via les formulaires de contact.</li>
+    </ul>
+    <p>Nous ne collectons <strong>aucune donnée sensible</strong> : pas de données bancaires, pas de données de santé, pas de numéro de sécurité sociale.</p>
+  </div>
+
+  <!-- 3 - FINALITÉS -->
+  <div class="chapter" id="finalites">
+    <h2><span>🎯</span> <em>Finalités</em> du Traitement</h2>
+    <p>Vos données sont collectées uniquement pour les finalités suivantes :</p>
+    <ul>
+      <li>Vous envoyer la <strong>carte du jour</strong> ou des contenus spirituels par email (newsletter).</li>
+      <li>Vous faire parvenir des <strong>PDF gratuits</strong> et ressources téléchargeables demandés.</li>
+      <li>Améliorer l'<strong>expérience utilisateur</strong> sur le site via des statistiques anonymisées.</li>
+      <li>Répondre à vos <strong>messages et demandes</strong> de contact.</li>
+      <li>Vous informer des <strong>nouveautés et offres</strong> de la boutique Lumière Intérieure.</li>
+    </ul>
+    <div class="info-box">
+      <p><strong>Base légale :</strong> Le traitement de vos données repose sur votre <strong>consentement explicite</strong>, donné au moment de votre inscription via le formulaire. Vous pouvez retirer ce consentement à tout moment, sans justification, en cliquant sur le lien de désinscription présent dans chaque email.</p>
+    </div>
+  </div>
+
+  <!-- 4 - DURÉE -->
+  <div class="chapter" id="duree">
+    <h2><span>⏱️</span> Durée de <em>Conservation</em></h2>
+    <p>Vos données sont conservées aussi longtemps que vous êtes inscrit(e) à notre liste email ou que vous interagissez avec le site.</p>
+    <ul>
+      <li><strong>Données email</strong> — Conservées jusqu'à votre désinscription, puis supprimées sous 30 jours.</li>
+      <li><strong>Données de navigation</strong> — Conservées de manière anonymisée pendant 13 mois maximum.</li>
+      <li><strong>Données de contact</strong> — Conservées le temps nécessaire au traitement de votre demande.</li>
+    </ul>
+  </div>
+
+  <!-- 5 - DROITS RGPD -->
+  <div class="chapter" id="droits">
+    <h2><span>⚖️</span> Vos Droits <em>RGPD</em></h2>
+    <p>Conformément au RGPD et à la loi Informatique et Libertés, vous disposez des droits suivants sur vos données personnelles :</p>
+    <ul>
+      <li><strong>Droit d'accès</strong> — Consulter les données que nous détenons sur vous.</li>
+      <li><strong>Droit de rectification</strong> — Corriger des données inexactes ou incomplètes.</li>
+      <li><strong>Droit à l'effacement</strong> — Demander la suppression de vos données (« droit à l'oubli »).</li>
+      <li><strong>Droit d'opposition</strong> — Vous opposer au traitement de vos données pour certaines finalités.</li>
+      <li><strong>Droit à la portabilité</strong> — Recevoir vos données dans un format lisible et structuré.</li>
+      <li><strong>Droit à la limitation</strong> — Demander la suspension temporaire du traitement de vos données.</li>
+    </ul>
+    <div class="info-box">
+      <p>Pour exercer ces droits, contactez-nous à <strong>pa-signature@outlook.fr</strong>. Nous vous répondrons dans un délai maximum de <strong>30 jours</strong>. Vous avez également le droit d'introduire une réclamation auprès de la <strong>CNIL</strong> (Commission Nationale de l'Informatique et des Libertés) : <strong>www.cnil.fr</strong></p>
+    </div>
+  </div>
+
+  <!-- 6 - PARTAGE -->
+  <div class="chapter" id="partage">
+    <h2><span>🤝</span> Partage des <em>Données</em></h2>
+    <p>Nous ne vendons jamais vos données personnelles à des tiers. Vos données peuvent être transmises uniquement à nos prestataires techniques dans le strict cadre de leur mission :</p>
+    <ul>
+      <li><strong>Outil d'emailing</strong> (Brevo, MailerLite ou équivalent) — Pour l'envoi de la newsletter et des emails automatiques.</li>
+      <li><strong>Hébergeur du site</strong> — Dans le cadre du fonctionnement technique du site.</li>
+    </ul>
+    <p>Ces prestataires sont contractuellement tenus de respecter la confidentialité de vos données et de se conformer au RGPD.</p>
+  </div>
+
+  <div class="sep"></div>
+
+  <!-- 7 - COOKIES -->
+  <div class="chapter" id="cookies">
+    <h2><span>🍪</span> Politique des <em>Cookies</em></h2>
+    <p>Un cookie est un petit fichier texte déposé sur votre appareil lors de la visite du site. Voici les cookies utilisés :</p>
+
+    <table class="cookies-table">
+      <thead>
+        <tr>
+          <th>Cookie</th>
+          <th>Type</th>
+          <th>Durée</th>
+          <th>Finalité</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>rgpd</td>
+          <td><span class="tag-n">Nécessaire</span></td>
+          <td>1 an</td>
+          <td>Mémorise votre choix concernant les cookies</td>
+        </tr>
+        <tr>
+          <td>session</td>
+          <td><span class="tag-n">Nécessaire</span></td>
+          <td>Session</td>
+          <td>Fonctionnement technique du site</td>
+        </tr>
+        <tr>
+          <td>_ga (Google Analytics)</td>
+          <td><span class="tag-o">Analytique</span></td>
+          <td>13 mois</td>
+          <td>Statistiques de visite anonymisées (si accepté)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Vous pouvez modifier vos préférences à tout moment en cliquant sur le bouton ci-dessous :</p>
+    <button class="rgpd-btn" onclick="resetRGPD()">🍪 Gérer mes préférences cookies</button>
+  </div>
+
+  <!-- 8 - SÉCURITÉ -->
+  <div class="chapter" id="securite">
+    <h2><span>🔒</span> <em>Sécurité</em> des Données</h2>
+    <p>Nous mettons en œuvre toutes les mesures techniques et organisationnelles raisonnables pour protéger vos données contre tout accès non autorisé, perte, altération ou divulgation :</p>
+    <ul>
+      <li>Connexion sécurisée <strong>HTTPS</strong> sur l'ensemble du site.</li>
+      <li>Accès aux données restreint aux seules personnes autorisées.</li>
+      <li>Prestataires sélectionnés pour leur conformité au RGPD.</li>
+      <li>Aucun stockage de mot de passe ou de données bancaires.</li>
+    </ul>
+  </div>
+
+  <!-- 9 - CONTACT -->
+  <div class="chapter" id="contact-rgpd">
+    <h2><span>✉️</span> Nous <em>Contacter</em></h2>
+    <p>Pour toute question, réclamation ou exercice de vos droits concernant vos données personnelles :</p>
+    <div class="contact-box">
+      <p>Lumière Intérieure — Responsable du traitement des données</p>
+      <a href="mailto:pa-signature@outlook.fr">pa-signature@outlook.fr</a>
+      <p style="margin-top:1rem;font-size:0.8rem">Nous nous engageons à vous répondre dans un délai de 30 jours ouvrés.</p>
+    </div>
+    <p>En cas de non-réponse satisfaisante, vous pouvez saisir la <strong>CNIL</strong> :</p>
+    <ul>
+      <li>En ligne : <strong>www.cnil.fr/fr/plaintes</strong></li>
+      <li>Par courrier : CNIL, 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07</li>
+    </ul>
+  </div>
+
+  <div class="sep"></div>
+
+  <!-- MENTIONS LÉGALES -->
+  <div class="chapter" id="mentions">
+    <h2><span>📄</span> Mentions <em>Légales</em></h2>
+    <p>Conformément à la loi n°2004-575 du 21 juin 2004 pour la Confiance dans l'Économie Numérique :</p>
+    <ul>
+      <li><strong>Nom du site :</strong> Lumière Intérieure</li>
+      <li><strong>Éditeur :</strong> Personne physique — France</li>
+      <li><strong>Contact :</strong> pa-signature@outlook.fr</li>
+      <li><strong>Boutique :</strong> ko-fi.com/lumiereinterieurep</li>
+      <li><strong>Hébergement :</strong> À compléter avec le nom de votre hébergeur</li>
+    </ul>
+    <div class="info-box">
+      <p><strong>Responsabilité :</strong> Le contenu de ce site est fourni à titre informatif et spirituel uniquement. Il ne constitue pas un avis médical, psychologique ou financier. Lumière Intérieure ne saurait être tenu responsable des décisions prises sur la base des contenus publiés.</p>
+    </div>
+    <div class="info-box" style="margin-top:12px">
+      <p><strong>Propriété intellectuelle :</strong> L'ensemble des contenus présents sur ce site (textes, images, visuels) sont la propriété exclusive de Lumière Intérieure. Toute reproduction, même partielle, est interdite sans autorisation préalable.</p>
+    </div>
+  </div>
+
+  <div class="nav-pages">
+    <a href="lumiere-interieure.html" class="nav-page-btn"><span class="arrow">←</span> Retour à l'accueil</a>
+    <a href="mailto:pa-signature@outlook.fr" class="nav-page-btn">Nous contacter <span class="arrow">→</span></a>
+  </div>
+
+</div>
+
+<footer-mini>© 2026 Lumière Intérieure · Tous droits réservés 🌙</footer-mini>
+
+<script>
+function resetRGPD(){
+  localStorage.removeItem('rgpd');
+  // Afficher la bannière de la page d'accueil si on y retourne
+  alert('Vos préférences cookies ont été réinitialisées. Retournez sur l\'accueil pour faire votre choix.');
+}
+
+// Smooth scroll
+document.querySelectorAll('.pnav-btn').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(btn.getAttribute('href'));
+    if(target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>

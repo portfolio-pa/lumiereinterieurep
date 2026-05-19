@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guide des 7 Chakras — Lumière Intérieure</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--or:#C9A96E;--or-clair:#E8D5B0;--nuit:#0D0A1A;--nuit-mid:#1A1428;--creme:#FAF6EE;--text-doux:#8B7FA8}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--nuit);color:var(--creme);overflow-x:hidden}
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(13,10,26,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,169,110,0.2);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--or);text-decoration:none}
+.logo span{font-style:italic;color:var(--or-clair)}
+.nav-back{color:var(--text-doux);text-decoration:none;font-size:0.85rem;transition:color 0.2s}
+.nav-back:hover{color:var(--or)}
+.hero-page{padding:140px 5% 70px;text-align:center;background:radial-gradient(ellipse at 50% 30%,rgba(74,48,96,0.45) 0%,transparent 65%)}
+.page-tag{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--or);margin-bottom:1rem;display:block}
+.page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:300;color:var(--creme);line-height:1.2;margin-bottom:1rem}
+.page-title em{font-style:italic;color:var(--or)}
+.page-intro{color:var(--text-doux);font-size:1.05rem;line-height:1.9;max-width:700px;margin:0 auto 2.5rem;font-family:'Cormorant Garamond',serif;font-style:italic}
+.divider{width:60px;height:1px;background:var(--or);margin:1.5rem auto;opacity:0.5}
+.chakra-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:0 5% 50px;max-width:860px;margin:0 auto}
+.cnav-btn{display:flex;align-items:center;gap:7px;background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--text-doux);padding:8px 16px;border-radius:20px;font-size:0.78rem;cursor:pointer;text-decoration:none;transition:all 0.3s;font-family:'Jost',sans-serif}
+.cnav-btn:hover{border-color:var(--or);color:var(--creme);background:rgba(255,255,255,0.03)}
+.cnav-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.content-wrap{max-width:960px;margin:0 auto;padding:0 5% 100px}
+.intro-bloc{background:rgba(74,48,96,0.15);border:1px solid rgba(201,169,110,0.15);border-radius:6px;padding:32px;margin-bottom:60px}
+.intro-bloc p{color:var(--text-doux);line-height:1.95;font-size:0.97rem;margin-bottom:1rem}
+.intro-bloc p:last-child{margin-bottom:0}
+.intro-bloc strong{color:var(--or-clair);font-weight:500}
+.chakra-bloc{margin-bottom:60px;scroll-margin-top:90px;border:1px solid rgba(255,255,255,0.05);border-radius:8px;overflow:hidden;transition:border-color 0.3s}
+.chakra-bloc:hover{border-color:rgba(201,169,110,0.2)}
+.chakra-top{display:grid;grid-template-columns:6px 1fr}
+.chakra-color-bar{flex-shrink:0}
+.chakra-top-content{padding:28px 28px 24px}
+.chakra-top-header{display:flex;align-items:center;gap:16px;margin-bottom:14px}
+.chakra-emoji{font-size:2.4rem}
+.chakra-title-wrap h2{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;color:var(--creme);line-height:1.2}
+.chakra-title-wrap h2 em{font-style:italic}
+.chakra-title-wrap .sanskrit{font-size:0.72rem;color:var(--text-doux);letter-spacing:0.18em;text-transform:uppercase;margin-top:3px}
+.chakra-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.badge{font-size:0.7rem;padding:4px 12px;border-radius:20px;letter-spacing:0.08em;border:1px solid rgba(255,255,255,0.1);color:var(--text-doux)}
+.chakra-intro{color:var(--text-doux);line-height:1.9;font-size:0.94rem}
+.chakra-intro strong{color:var(--or-clair);font-weight:500}
+.chakra-body{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:1px solid rgba(255,255,255,0.05)}
+.chakra-col{padding:22px 24px;border-right:1px solid rgba(255,255,255,0.05)}
+.chakra-col:last-child{border-right:none}
+.chakra-col h4{font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--or-clair);margin-bottom:1rem;font-weight:400}
+.chakra-col ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.chakra-col ul li{font-size:0.82rem;color:var(--text-doux);display:flex;gap:8px;line-height:1.6}
+.chakra-col ul li::before{content:'✦';color:var(--or);font-size:0.5rem;margin-top:5px;flex-shrink:0}
+.chakra-col ul li strong{color:var(--creme);font-weight:500}
+.chakra-affirmation{padding:20px 28px;background:rgba(0,0,0,0.2);border-top:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:14px}
+.chakra-affirmation p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--creme);line-height:1.7}
+.chakra-affirmation span{font-size:0.7rem;color:var(--text-doux);display:block;margin-top:4px;font-family:'Jost',sans-serif;letter-spacing:0.1em}
+.sep{height:1px;background:linear-gradient(to right,transparent,rgba(201,169,110,0.2),transparent);margin:50px 0}
+.section-h2{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--creme);margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid rgba(201,169,110,0.15)}
+.section-h2 em{font-style:italic;color:var(--or)}
+.section-p{color:var(--text-doux);line-height:1.9;font-size:0.95rem;margin-bottom:1.5rem}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-bottom:2rem}
+.card-s{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:18px;transition:all 0.3s}
+.card-s:hover{background:rgba(74,48,96,0.15);border-color:rgba(201,169,110,0.25);transform:translateY(-2px)}
+.card-s .cs-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.card-s .cs-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0}
+.card-s .cs-icon{font-size:1.8rem;display:block;margin-bottom:0.7rem}
+.card-s h3{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--creme);font-weight:400;margin-bottom:4px}
+.card-s p{font-size:0.8rem;color:var(--text-doux);line-height:1.7}
+.nav-pages{display:flex;justify-content:space-between;align-items:center;padding:40px 0;border-top:1px solid rgba(201,169,110,0.15);margin-top:40px;flex-wrap:wrap;gap:16px}
+.nav-page-btn{display:flex;align-items:center;gap:10px;color:var(--text-doux);text-decoration:none;font-size:0.85rem;transition:color 0.2s}
+.nav-page-btn:hover{color:var(--or)}
+.nav-page-btn .arrow{color:var(--or)}
+footer-mini{display:block;text-align:center;padding:30px;border-top:1px solid rgba(255,255,255,0.05);color:var(--text-doux);font-size:0.8rem}
+@media(max-width:700px){.chakra-body{grid-template-columns:1fr}.chakra-col{border-right:none;border-bottom:1px solid rgba(255,255,255,0.05)}}
+</style>
+</head>
+<body>
+<nav>
+ <a href="index.html" class="logo">🌙 <span>Lumière</span> Intérieurep</a>
+  <a href="index.html#categories" class="nav-back">← Retour au site</a>
+</nav>
+
+<div class="hero-page">
+  <span class="page-tag">✦ Énergie & Équilibre ✦</span>
+  <h1 class="page-title">Guide Complet des<br><em>7 Chakras</em></h1>
+  <div class="divider"></div>
+  <p class="page-intro">Les chakras sont les portes de votre monde intérieur. Comprendre, ressentir et équilibrer ces sept centres d'énergie vous permet de vivre en plein alignement — corps, âme et esprit réunis.</p>
+</div>
+
+<div class="chakra-nav">
+  <a href="#c1" class="cnav-btn"><span class="cnav-dot" style="background:#FF4444"></span>Racine</a>
+  <a href="#c2" class="cnav-btn"><span class="cnav-dot" style="background:#FF8C00"></span>Sacré</a>
+  <a href="#c3" class="cnav-btn"><span class="cnav-dot" style="background:#FFD700"></span>Plexus Solaire</a>
+  <a href="#c4" class="cnav-btn"><span class="cnav-dot" style="background:#32CD32"></span>Cœur</a>
+  <a href="#c5" class="cnav-btn"><span class="cnav-dot" style="background:#00BFFF"></span>Gorge</a>
+  <a href="#c6" class="cnav-btn"><span class="cnav-dot" style="background:#6A5ACD"></span>Troisième Œil</a>
+  <a href="#c7" class="cnav-btn"><span class="cnav-dot" style="background:#9B59B6"></span>Couronne</a>
+</div>
+
+<div class="content-wrap">
+  <div class="intro-bloc">
+    <p>Le mot <strong>chakra</strong> vient du sanskrit et signifie <em>roue</em> ou <em>disque</em>. Ces 7 centres d'énergie vitale sont disposés le long de votre colonne vertébrale, du coccyx jusqu'au sommet du crâne. Ils régissent chacun des aspects précis de votre vie — physique, émotionnelle, mentale et spirituelle.</p>
+    <p>Quand un chakra est <strong>bloqué</strong>, l'énergie ne circule plus librement et des déséquilibres peuvent apparaître. Quand ils sont tous <strong>ouverts et alignés</strong>, vous ressentez une légèreté, une clarté et une vitalité profondes. Ce guide vous invite à explorer chaque chakra pour travailler avec votre énergie en toute conscience.</p>
+  </div>
+
+  <!-- CHAKRA 1 -->
+  <div class="chakra-bloc" id="c1">
+    <div class="chakra-top"><div class="chakra-color-bar" style="background:#FF4444"></div>
+    <div class="chakra-top-content">
+      <div class="chakra-top-header"><span class="chakra-emoji">🔴</span>
+        <div class="chakra-title-wrap"><h2>Chakra Racine — <em>Muladhara</em></h2><div class="sanskrit">मूलाधार · 1er Chakra · Rouge · Base de la colonne</div></div>
+      </div>
+      <div class="chakra-badges"><span class="badge">🌍 Élément Terre</span><span class="badge">♄ Saturne</span><span class="badge">Note Do</span></div>
+      <p class="chakra-intro">Le chakra racine est votre <strong>fondation et votre ancrage dans la vie physique</strong>. Il régit votre sentiment de sécurité fondamentale, votre relation à la matière, au corps, à la famille et à vos besoins essentiels. C'est votre connexion à la Terre nourricière. Sans une racine solide, tout le reste vacille. Travailler ce chakra, c'est bâtir des fondations inébranlables sur lesquelles toute votre vie peut s'épanouir.</p>
+    </div></div>
+    <div class="chakra-body">
+      <div class="chakra-col"><h4>✦ Équilibré</h4><ul><li>Sécurité intérieure profonde</li><li>Confiance en la vie et ses ressources</li><li>Relation saine au corps et aux besoins</li><li>Stabilité financière et matérielle</li><li>Enracinement dans le moment présent</li><li>Sentiment d'appartenance</li></ul></div>
+      <div class="chakra-col"><h4>⚠️ Bloqué</h4><ul><li>Anxiété chronique, peur du manque</li><li>Insécurité financière ou matérielle</li><li>Déconnexion du corps</li><li>Difficultés à se sentir chez soi</li><li>Douleurs lombaires, troubles digestifs</li><li>Besoin excessif de contrôle</li></ul></div>
+      <div class="chakra-col"><h4>💎 Outils</h4><ul><li><strong>Pierres :</strong> Obsidienne, Hématite, Jaspe rouge</li><li><strong>Huiles :</strong> Vétiver, Patchouli, Cèdre</li><li><strong>Mantra :</strong> LAM</li><li><strong>Yoga :</strong> Posture de la montagne</li><li><strong>Pratique :</strong> Marcher pieds nus</li><li><strong>Aliments :</strong> Betterave, radis</li></ul></div>
+    </div>
+    <div class="chakra-affirmation"><span style="font-size:1.2rem">✨</span><div><p>« Je suis ancré(e), en sécurité et pleinement soutenu(e) par la vie. La Terre me nourrit et me protège. »</p><span>Affirmation Muladhara</span></div></div>
+  </div>
+
+  <!-- CHAKRA 2 -->
+  <div class="chakra-bloc" id="c2">
+    <div class="chakra-top"><div class="chakra-color-bar" style="background:#FF8C00"></div>
+    <div class="chakra-top-content">
+      <div class="chakra-top-header"><span class="chakra-emoji">🟠</span>
+        <div class="chakra-title-wrap"><h2>Chakra Sacré — <em>Svadhisthana</em></h2><div class="sanskrit">स्वाधिष्ठान · 2ème Chakra · Orange · Bas-ventre</div></div>
+      </div>
+      <div class="chakra-badges"><span class="badge">🌊 Élément Eau</span><span class="badge">☽ Lune</span><span class="badge">Note Ré</span></div>
+      <p class="chakra-intro">Le chakra sacré est le siège de <strong>votre créativité, de vos émotions et de votre vitalité</strong>. Il gouverne votre capacité à ressentir, à vous laisser porter par la vie, à créer et à vous connecter aux autres avec plaisir. C'est là que résident votre passion, votre désir et votre joie d'exister dans un corps. Un chakra sacré épanoui vous permet de vivre pleinement dans l'abondance créatrice et le plaisir sain.</p>
+    </div></div>
+    <div class="chakra-body">
+      <div class="chakra-col"><h4>✦ Équilibré</h4><ul><li>Créativité fluide et abondante</li><li>Relation saine au plaisir et au désir</li><li>Émotions exprimées librement</li><li>Joie, enthousiasme, spontanéité</li><li>Relations intimes harmonieuses</li><li>Connexion à sa sensualité</li></ul></div>
+      <div class="chakra-col"><h4>⚠️ Bloqué</h4><ul><li>Blocage créatif, manque d'inspiration</li><li>Culpabilité autour du plaisir</li><li>Émotions réprimées ou explosives</li><li>Difficultés dans les relations intimes</li><li>Troubles urinaires ou gynécologiques</li><li>Sentiment de vide profond</li></ul></div>
+      <div class="chakra-col"><h4>💎 Outils</h4><ul><li><strong>Pierres :</strong> Cornaline, Pierre de Lune</li><li><strong>Huiles :</strong> Ylang-ylang, Orange douce</li><li><strong>Mantra :</strong> VAM</li><li><strong>Yoga :</strong> Posture du papillon</li><li><strong>Pratique :</strong> Danser, nager, créer</li><li><strong>Aliments :</strong> Mangue, carotte, orange</li></ul></div>
+    </div>
+    <div class="chakra-affirmation"><span style="font-size:1.2rem">✨</span><div><p>« J'embrasse ma créativité, mes émotions et ma sensualité. Je vis avec passion, joie et plénitude. »</p><span>Affirmation Svadhisthana</span></div></div>
+  </div>
+
+  <!-- CHAKRA 3 -->
+  <div class="chakra-bloc" id="c3">
+    <div class="chakra-top"><div class="chakra-color-bar" style="background:#FFD700"></div>
+    <div class="chakra-top-content">
+      <div class="chakra-top-header"><span class="chakra-emoji">🟡</span>
+        <div class="chakra-title-wrap"><h2>Plexus Solaire — <em>Manipura</em></h2><div class="sanskrit">मणिपूर · 3ème Chakra · Jaune · Estomac</div></div>
+      </div>
+      <div class="chakra-badges"><span class="badge">🔥 Élément Feu</span><span class="badge">☀️ Soleil</span><span class="badge">Note Mi</span></div>
+      <p class="chakra-intro">Le plexus solaire est votre <strong>centre de pouvoir personnel et de confiance en soi</strong>. C'est là que brûle votre feu intérieur — votre volonté, votre assurance, votre capacité à agir et à manifester vos désirs. Il régit l'estime de soi, la discipline et le courage d'être soi-même sans s'excuser. Quand ce chakra rayonne, vous avancez dans la vie avec clarté, force et une énergie inépuisable.</p>
+    </div></div>
+    <div class="chakra-body">
+      <div class="chakra-col"><h4>✦ Équilibré</h4><ul><li>Confiance en soi solide et naturelle</li><li>Capacité à poser des limites claires</li><li>Motivation, discipline, persévérance</li><li>Sentiment de maîtrise de sa vie</li><li>Digestion saine, énergie forte</li><li>Assertivité sans agressivité</li></ul></div>
+      <div class="chakra-col"><h4>⚠️ Bloqué</h4><ul><li>Manque de confiance, syndrome imposteur</li><li>Difficultés à dire non</li><li>Perfectionnisme ou procrastination</li><li>Problèmes digestifs, brûlures d'estomac</li><li>Besoin de validation externe</li><li>Colère refoulée ou explosive</li></ul></div>
+      <div class="chakra-col"><h4>💎 Outils</h4><ul><li><strong>Pierres :</strong> Citrine, Oeil de tigre, Ambre</li><li><strong>Huiles :</strong> Citron, Gingembre, Romarin</li><li><strong>Mantra :</strong> RAM</li><li><strong>Yoga :</strong> Posture du bateau</li><li><strong>Pratique :</strong> Sport, exposition au soleil</li><li><strong>Aliments :</strong> Citron, banane, curcuma</li></ul></div>
+    </div>
+    <div class="chakra-affirmation"><span style="font-size:1.2rem">✨</span><div><p>« Je suis fort(e), confiant(e) et je m'assume pleinement. Mon feu intérieur m'éclaire et me guide. »</p><span>Affirmation Manipura</span></div></div>
+  </div>
+
+  <!-- CHAKRA 4 -->
+  <div class="chakra-bloc" id="c4">
+    <div class="chakra-top"><div class="chakra-color-bar" style="background:#32CD32"></div>
+    <div class="chakra-top-content">
+      <div class="chakra-top-header"><span class="chakra-emoji">💚</span>
+        <div class="chakra-title-wrap"><h2>Chakra Cœur — <em>Anahata</em></h2><div class="sanskrit">अनाहत · 4ème Chakra · Vert · Centre de la poitrine</div></div>
+      </div>
+      <div class="chakra-badges"><span class="badge">💨 Élément Air</span><span class="badge">♀ Vénus</span><span class="badge">Note Fa</span></div>
+      <p class="chakra-intro">Le chakra cœur est le <strong>pont sacré entre la matière et l'esprit</strong>. C'est le centre de l'amour inconditionnel, de la compassion et de la guérison. Il représente votre capacité à aimer sans conditions — soi-même d'abord, puis les autres. C'est ici que se guérissent les blessures relationnelles et que naît la véritable paix intérieure. Un cœur ouvert rayonne et transforme tout ce qu'il touche.</p>
+    </div></div>
+    <div class="chakra-body">
+      <div class="chakra-col"><h4>✦ Équilibré</h4><ul><li>Amour inconditionnel de soi et des autres</li><li>Capacité à pardonner sincèrement</li><li>Relations profondes et nourrissantes</li><li>Compassion et empathie équilibrées</li><li>Joie simple et gratitude naturelle</li><li>Ouverture sans se perdre</li></ul></div>
+      <div class="chakra-col"><h4>⚠️ Bloqué</h4><ul><li>Difficultés à recevoir de l'amour</li><li>Rancœur, incapacité à pardonner</li><li>Peur de l'abandon ou vulnérabilité</li><li>Problèmes cardiaques, tensions thoraciques</li><li>Sur-empathie, oubli de soi</li><li>Isolement ou dépendance affective</li></ul></div>
+      <div class="chakra-col"><h4>💎 Outils</h4><ul><li><strong>Pierres :</strong> Quartz rose, Aventurine, Malachite</li><li><strong>Huiles :</strong> Rose, Géranium, Bergamote</li><li><strong>Mantra :</strong> YAM</li><li><strong>Yoga :</strong> Ouverture de poitrine, cobra</li><li><strong>Pratique :</strong> Gratitude, méditation loving-kindness</li><li><strong>Aliments :</strong> Brocoli, avocat, thé vert</li></ul></div>
+    </div>
+    <div class="chakra-affirmation"><span style="font-size:1.2rem">✨</span><div><p>« Je m'aime profondément. J'accueille l'amour, je donne l'amour. Mon cœur est ouvert et en paix. »</p><span>Affirmation Anahata</span></div></div>
+  </div>
+
+  <!-- CHAKRA 5 -->
+  <div class="chakra-bloc" id="c5">
+    <div class="chakra-top"><div class="chakra-color-bar" style="background:#00BFFF"></div>
+    <div class="chakra-top-content">
+      <div class="chakra-top-header"><span class="chakra-emoji">🔵</span>
+        <div class="chakra-title-wrap"><h2>Chakra Gorge — <em>Vishuddha</em></h2><div class="sanskrit">विशुद्ध · 5ème Chakra · Bleu · Gorge</div></div>
+      </div>
+      <div class="chakra-badges"><span class="badge">🌀 Élément Éther</span><span class="badge">☿ Mercure</span><span class="badge">Note Sol</span></div>
+      <p class="chakra-intro">Le chakra gorge est le centre de <strong>votre expression authentique et de votre vérité</strong>. Il gouverne toutes les formes de communication — les mots, la voix, l'écriture, le chant, la créativité expressive. Quand il est ouvert, vous osez dire ce que vous pensez et vous vous exprimez avec clarté et authenticité, sans craindre le jugement. Votre voix devient un outil de pouvoir et de connexion profonde.</p>
+    </div></div>
+    <div class="chakra-body">
+      <div class="chakra-col"><h4>✦ Équilibré</h4><ul><li>Expression claire et authentique</li><li>Écoute active et présente</li><li>Capacité à dire non sans culpabilité</li><li>Voix assurée, parole qui porte</li><li>Créativité dans les arts expressifs</li><li>Cohérence entre pensées et paroles</li></ul></div>
+      <div class="chakra-col"><h4>⚠️ Bloqué</h4><ul><li>Nœud dans la gorge, mal à s'exprimer</li><li>Peur du jugement, censure de soi</li><li>Bavardage excessif ou mutisme</li><li>Maux de gorge récurrents</li><li>Mensonges ou omissions fréquentes</li><li>Difficulté à écouter vraiment</li></ul></div>
+      <div class="chakra-col"><h4>💎 Outils</h4><ul><li><strong>Pierres :</strong> Lapis-lazuli, Aigue-marine, Turquoise</li><li><strong>Huiles :</strong> Eucalyptus, Camomille, Menthe</li><li><strong>Mantra :</strong> HAM</li><li><strong>Yoga :</strong> Posture du poisson</li><li><strong>Pratique :</strong> Chant, écriture libre, journaling</li><li><strong>Aliments :</strong> Myrtilles, tisanes, eau</li></ul></div>
+    </div>
+    <div class="chakra-affirmation"><span style="font-size:1.2rem">✨</span><div><p>« Je m'exprime avec clarté, authenticité et courage. Ma voix compte et ma vérité mérite d'être entendue. »</p><span>Affirmation Vishuddha</span></div></div>
+  </div>
+
+  <!-- CHAKRA 6 -->
+  <div class="chakra-bloc" id="c6">
+    <div class="chakra-top"><div class="chakra-color-bar" style="background:#6A5ACD"></div>
+    <div class="chakra-top-content">
+      <div class="chakra-top-header"><span class="chakra-emoji">🔮</span>
+        <div class="chakra-title-wrap"><h2>Troisième Œil — <em>Ajna</em></h2><div class="sanskrit">आज्ञा · 6ème Chakra · Indigo · Entre les sourcils</div></div>
+      </div>
+      <div class="chakra-badges"><span class="badge">💡 Élément Lumière</span><span class="badge">♆ Neptune</span><span class="badge">Note La</span></div>
+      <p class="chakra-intro">Le troisième œil est le siège de <strong>votre intuition, de votre clairvoyance et de votre sagesse intérieure</strong>. Il est la porte vers la perception au-delà du visible — les synchronicités, les pressentiments, les rêves prophétiques. Développer ce chakra, c'est apprendre à faire confiance à cette voix douce et précise qui sait toujours, bien avant que votre mental ne comprenne.</p>
+    </div></div>
+    <div class="chakra-body">
+      <div class="chakra-col"><h4>✦ Équilibré</h4><ul><li>Intuition développée et fiable</li><li>Rêves lucides et symboliques</li><li>Discernement et clarté mentale</li><li>Connexion aux synchronicités</li><li>Imagination créatrice et visionnaire</li><li>Perception des énergies subtiles</li></ul></div>
+      <div class="chakra-col"><h4>⚠️ Bloqué</h4><ul><li>Doute constant envers son intuition</li><li>Maux de tête, migraines fréquentes</li><li>Rationalisme excessif, rigidité mentale</li><li>Troubles du sommeil, cauchemars</li><li>Manque de discernement</li><li>Difficultés de concentration</li></ul></div>
+      <div class="chakra-col"><h4>💎 Outils</h4><ul><li><strong>Pierres :</strong> Améthyste, Labradorite, Fluorite</li><li><strong>Huiles :</strong> Lavande, Encens, Clary Sage</li><li><strong>Mantra :</strong> OM (AUM)</li><li><strong>Yoga :</strong> Posture de l'enfant</li><li><strong>Pratique :</strong> Méditation, tarot, journal de rêves</li><li><strong>Aliments :</strong> Myrtilles, raisins noirs</li></ul></div>
+    </div>
+    <div class="chakra-affirmation"><span style="font-size:1.2rem">✨</span><div><p>« Je fais confiance à mon intuition. Elle me guide avec sagesse vers ma vérité la plus profonde. »</p><span>Affirmation Ajna</span></div></div>
+  </div>
+
+  <!-- CHAKRA 7 -->
+  <div class="chakra-bloc" id="c7">
+    <div class="chakra-top"><div class="chakra-color-bar" style="background:#9B59B6"></div>
+    <div class="chakra-top-content">
+      <div class="chakra-top-header"><span class="chakra-emoji">💜</span>
+        <div class="chakra-title-wrap"><h2>Couronne — <em>Sahasrara</em></h2><div class="sanskrit">सहस्रार · 7ème Chakra · Violet / Blanc · Sommet du crâne</div></div>
+      </div>
+      <div class="chakra-badges"><span class="badge">🌌 Pensée Pure</span><span class="badge">♅ Uranus</span><span class="badge">Note Si</span></div>
+      <p class="chakra-intro">Le chakra couronne est le portail vers <strong>la conscience divine et l'union avec l'univers</strong>. C'est le chakra le plus élevé, celui qui transcende l'individualité pour se fondre dans le tout. Quand il s'éveille, vous ressentez une paix absolue, un sentiment d'unité avec toute vie et une confiance totale en la perfection du moment présent. C'est l'expérience de la grâce à l'état pur.</p>
+    </div></div>
+    <div class="chakra-body">
+      <div class="chakra-col"><h4>✦ Équilibré</h4><ul><li>Connexion spirituelle profonde et vivante</li><li>Sentiment de paix et d'unité intérieure</li><li>Ouverture à la guidance divine</li><li>Acceptation sereine de la vie</li><li>Sagesse et compassion universelle</li><li>Expériences de grâce et synchronicité</li></ul></div>
+      <div class="chakra-col"><h4>⚠️ Bloqué</h4><ul><li>Sentiment de vide spirituel</li><li>Cynisme, matérialisme excessif</li><li>Déconnexion de soi et de la vie</li><li>Rigidité dogmatique ou nihilisme</li><li>Troubles nerveux, hypersensibilité</li><li>Sentiment d'isolement cosmique</li></ul></div>
+      <div class="chakra-col"><h4>💎 Outils</h4><ul><li><strong>Pierres :</strong> Cristal de roche, Sélénite, Howlite</li><li><strong>Huiles :</strong> Encens, Myrrhe, Néroli, Lotus</li><li><strong>Mantra :</strong> Silence ou OM</li><li><strong>Yoga :</strong> Savasana, méditation profonde</li><li><strong>Pratique :</strong> Prière, contemplation, silence</li><li><strong>Aliments :</strong> Jeûne conscient, eau purifiée</li></ul></div>
+    </div>
+    <div class="chakra-affirmation"><span style="font-size:1.2rem">✨</span><div><p>« Je suis Un(e) avec l'univers. La lumière divine coule en moi et à travers moi. Je suis en paix. »</p><span>Affirmation Sahasrara</span></div></div>
+  </div>
+
+  <div class="sep"></div>
+
+  <!-- BLOCAGES -->
+  <div style="margin-bottom:60px">
+    <h2 class="section-h2">Comment savoir si un chakra est <em>bloqué</em> ?</h2>
+    <p class="section-p">Les blocages se manifestent souvent à plusieurs niveaux à la fois — physique, émotionnel et comportemental. Voici les signaux les plus courants à observer dans votre quotidien.</p>
+    <div class="grid-3">
+      <div class="card-s"><div class="cs-top"><div class="cs-dot" style="background:#FF4444"></div><h3>Racine bloquée</h3></div><p>Anxiété chronique, instabilité financière, douleurs lombaires, sentiment de ne jamais être en sécurité, peur du manque.</p></div>
+      <div class="card-s"><div class="cs-top"><div class="cs-dot" style="background:#FF8C00"></div><h3>Sacré bloqué</h3></div><p>Blocage créatif, difficultés relationnelles ou intimes, culpabilité, manque d'enthousiasme et de joie de vivre.</p></div>
+      <div class="card-s"><div class="cs-top"><div class="cs-dot" style="background:#FFD700"></div><h3>Plexus bloqué</h3></div><p>Manque de confiance, peur de l'échec, problèmes digestifs, difficultés à affirmer ses besoins et poser des limites.</p></div>
+      <div class="card-s"><div class="cs-top"><div class="cs-dot" style="background:#32CD32"></div><h3>Cœur bloqué</h3></div><p>Rancœur, isolement, peur de la vulnérabilité, difficultés à recevoir ou donner de l'amour librement.</p></div>
+      <div class="card-s"><div class="cs-top"><div class="cs-dot" style="background:#00BFFF"></div><h3>Gorge bloquée</h3></div><p>Maux de gorge récurrents, peur du jugement, incapacité à s'exprimer authentiquement ou à poser des limites verbales.</p></div>
+      <div class="card-s"><div class="cs-top"><div class="cs-dot" style="background:#6A5ACD"></div><h3>Troisième Œil bloqué</h3></div><p>Manque de discernement, migraines, doute envers son intuition, pensées envahissantes, manque de vision.</p></div>
+      <div class="card-s"><div class="cs-top"><div class="cs-dot" style="background:#9B59B6"></div><h3>Couronne bloquée</h3></div><p>Sentiment de vide, perte de sens profond, déconnexion spirituelle, rigidité dans les croyances ou cynisme.</p></div>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+
+  <!-- TECHNIQUES -->
+  <div style="margin-bottom:60px">
+    <h2 class="section-h2">Techniques de <em>Rééquilibrage</em></h2>
+    <div class="grid-3">
+      <div class="card-s"><span class="cs-icon">🧘</span><h3>Méditation chakras</h3><p>Visualisez chaque chakra comme une roue de lumière colorée tournant librement. Remontez de la racine à la couronne.</p></div>
+      <div class="card-s"><span class="cs-icon">🔔</span><h3>Bols tibétains</h3><p>Chaque bol vibre à la fréquence d'un chakra. Le son pénètre profondément et libère les blocages énergétiques.</p></div>
+      <div class="card-s"><span class="cs-icon">💎</span><h3>Cristallothérapie</h3><p>Allongez-vous et placez la pierre correspondante sur chaque chakra pendant 20 minutes. Respirez profondément.</p></div>
+      <div class="card-s"><span class="cs-icon">🌈</span><h3>Chromothérapie</h3><p>Portez la couleur du chakra à travailler. Entourez-vous de cette couleur dans votre espace de vie.</p></div>
+      <div class="card-s"><span class="cs-icon">🌿</span><h3>Aromathérapie</h3><p>Diffusez ou appliquez l'huile essentielle sur le point du chakra concerné avec une intention précise.</p></div>
+      <div class="card-s"><span class="cs-icon">🎵</span><h3>Mantras sacrés</h3><p>Répétez le mantra du chakra à travailler (LAM, VAM, RAM, YAM, HAM, OM) lors de vos méditations.</p></div>
+      <div class="card-s"><span class="cs-icon">✍️</span><h3>Journal énergétique</h3><p>Écrivez librement sur le thème du chakra. Posez-vous : où est-ce que je me retiens dans ce domaine de vie ?</p></div>
+      <div class="card-s"><span class="cs-icon">🌙</span><h3>Rituels lunaires</h3><p>Travaillez un chakra spécifique lors de chaque nouvelle lune en liant votre intention à son énergie particulière.</p></div>
+    </div>
+  </div>
+
+  <div class="nav-pages">
+    <a href="lumiere-interieure.html" class="nav-page-btn"><span class="arrow">←</span> Retour à l'accueil</a>
+    <a href="rituels-energetiques.html" class="nav-page-btn">Rituels & Pratiques <span class="arrow">→</span></a>
+  </div>
+</div>
+
+<footer-mini>© 2026 Lumière Intérieure · Tous droits réservés 🌙</footer-mini>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
+  });
+}, { threshold: 0.05 });
+document.querySelectorAll('.chakra-bloc').forEach(el => {
+  el.style.opacity='0'; el.style.transform='translateY(20px)';
+  el.style.transition='opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+document.querySelectorAll('.cnav-btn').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(btn.getAttribute('href'));
+    if(target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rituels Lunaires — Lumière Intérieure</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--or:#C9A96E;--or-clair:#E8D5B0;--nuit:#0D0A1A;--nuit-mid:#1A1428;--creme:#FAF6EE;--text-doux:#8B7FA8}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--nuit);color:var(--creme);overflow-x:hidden}
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(13,10,26,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,169,110,0.2);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--or);text-decoration:none}
+.logo span{font-style:italic;color:var(--or-clair)}
+.nav-back{color:var(--text-doux);text-decoration:none;font-size:0.85rem;transition:color 0.2s}
+.nav-back:hover{color:var(--or)}
+.hero-page{padding:140px 5% 80px;text-align:center;background:radial-gradient(ellipse at 50% 30%,rgba(74,48,96,0.4) 0%,transparent 70%)}
+.page-tag{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--or);margin-bottom:1rem;display:block}
+.page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:300;color:var(--creme);line-height:1.2;margin-bottom:1rem}
+.page-title em{font-style:italic;color:var(--or)}
+.page-intro{color:var(--text-doux);font-size:1.05rem;line-height:1.9;max-width:700px;margin:0 auto;font-family:'Cormorant Garamond',serif;font-style:italic}
+.divider{width:60px;height:1px;background:var(--or);margin:1.5rem auto;opacity:0.5}
+.content-wrap{max-width:900px;margin:0 auto;padding:0 5% 100px}
+.phases-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-bottom:60px}
+.phase-card{text-align:center;padding:28px 16px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:4px;transition:all 0.3s}
+.phase-card:hover{background:rgba(74,48,96,0.2);border-color:rgba(201,169,110,0.3)}
+.phase-card .p-icon{font-size:2.2rem;display:block;margin-bottom:0.8rem}
+.phase-card h3{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--creme);font-weight:400;margin-bottom:0.4rem}
+.phase-card p{font-size:0.78rem;color:var(--text-doux);line-height:1.6}
+.rituel-block{margin-bottom:60px;background:rgba(255,255,255,0.02);border:1px solid rgba(201,169,110,0.15);border-radius:6px;overflow:hidden}
+.rituel-header{padding:28px 30px;border-bottom:1px solid rgba(255,255,255,0.05)}
+.rituel-header .rh-top{display:flex;align-items:center;gap:16px;margin-bottom:8px}
+.rituel-header .r-icon{font-size:2.2rem}
+.rituel-header h2{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--creme)}
+.rituel-header h2 em{font-style:italic;color:var(--or)}
+.rituel-header p{color:var(--text-doux);font-size:0.9rem;line-height:1.8}
+.rituel-body{padding:30px}
+.rituel-body > p{color:var(--text-doux);line-height:1.9;font-size:0.95rem;margin-bottom:1.5rem}
+.rituel-body > p strong{color:var(--or-clair);font-weight:500}
+.etapes h3{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--or-clair);margin-bottom:1rem;font-weight:400}
+.etape-list{display:flex;flex-direction:column;gap:12px}
+.etape{display:flex;gap:14px;align-items:flex-start}
+.etape-num{width:28px;height:28px;border:1px solid rgba(201,169,110,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;color:var(--or);flex-shrink:0;margin-top:1px}
+.etape p{color:var(--text-doux);font-size:0.88rem;line-height:1.8;margin:0}
+.etape p strong{color:var(--creme);font-weight:500}
+.materiel{margin-top:1.5rem;background:rgba(74,48,96,0.15);border:1px solid rgba(201,169,110,0.1);border-radius:4px;padding:18px}
+.materiel h4{font-size:0.75rem;letter-spacing:0.15em;color:var(--or);text-transform:uppercase;margin-bottom:0.8rem}
+.materiel ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.materiel ul li{font-size:0.78rem;color:var(--text-doux);background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);padding:4px 12px;border-radius:20px}
+.nav-pages{display:flex;justify-content:space-between;align-items:center;padding:40px 0;border-top:1px solid rgba(201,169,110,0.15);margin-top:40px;flex-wrap:wrap;gap:16px}
+.nav-page-btn{display:flex;align-items:center;gap:10px;color:var(--text-doux);text-decoration:none;font-size:0.85rem;transition:color 0.2s}
+.nav-page-btn:hover{color:var(--or)}
+.nav-page-btn .arrow{color:var(--or)}
+footer-mini{display:block;text-align:center;padding:30px;border-top:1px solid rgba(255,255,255,0.05);color:var(--text-doux);font-size:0.8rem}
+</style>
+</head>
+<body>
+<nav>
+   <a href="index.html" class="logo">🌙 <span>Lumière</span> Intérieurep</a>
+  <a href="index.html#categories" class="nav-back">← Retour au site</a>
+</nav>
+
+<div class="hero-page">
+  <span class="page-tag">✦ Cycles & Magie ✦</span>
+  <h1 class="page-title">Rituels <em>Lunaires</em></h1>
+  <div class="divider"></div>
+  <p class="page-intro">La lune influence les marées, les plantes et nos émotions. Apprendre à travailler avec ses cycles vous permet de manifester, libérer et vous renouveler en harmonie avec l'univers.</p>
+</div>
+
+<div class="content-wrap">
+
+  <div class="phases-grid">
+    <div class="phase-card"><span class="p-icon">🌑</span><h3>Nouvelle Lune</h3><p>Intentions, nouveaux départs, plantation de graines</p></div>
+    <div class="phase-card"><span class="p-icon">🌒</span><h3>Croissant</h3><p>Action, élan, mise en mouvement</p></div>
+    <div class="phase-card"><span class="p-icon">🌓</span><h3>Premier Quartier</h3><p>Obstacles, ajustements, persévérance</p></div>
+    <div class="phase-card"><span class="p-icon">🌔</span><h3>Gibbeuse</h3><p>Affinement, gratitude, anticipation</p></div>
+    <div class="phase-card"><span class="p-icon">🌕</span><h3>Pleine Lune</h3><p>Accomplissement, lâcher prise, recharge</p></div>
+    <div class="phase-card"><span class="p-icon">🌖</span><h3>Décroissante</h3><p>Libération, bilan, gratitude</p></div>
+    <div class="phase-card"><span class="p-icon">🌗</span><h3>Dernier Quartier</h3><p>Pardon, transformation, purification</p></div>
+    <div class="phase-card"><span class="p-icon">🌘</span><h3>Balsamic</h3><p>Repos, introspection, préparation</p></div>
+  </div>
+
+  <!-- Rituel Nouvelle Lune -->
+  <div class="rituel-block">
+    <div class="rituel-header">
+      <div class="rh-top"><span class="r-icon">🌑</span><h2>Rituel de <em>Nouvelle Lune</em></h2></div>
+      <p>La nouvelle lune est le moment idéal pour poser vos intentions et planter les graines de ce que vous souhaitez manifester dans les 28 jours à venir.</p>
+    </div>
+    <div class="rituel-body">
+      <p>La nouvelle lune représente le début d'un nouveau cycle. C'est un moment de <strong>renouveau, d'introspection et de plantation d'intentions</strong>. L'énergie est tournée vers l'intérieur, propice à la réflexion profonde sur ce que vous souhaitez attirer dans votre vie.</p>
+      <div class="etapes">
+        <h3>✦ Les étapes du rituel</h3>
+        <div class="etape-list">
+          <div class="etape"><div class="etape-num">1</div><p><strong>Purifiez votre espace</strong> — Brûlez de la sauge blanche ou du palo santo pour nettoyer les énergies stagnantes de votre espace sacré.</p></div>
+          <div class="etape"><div class="etape-num">2</div><p><strong>Allumez une bougie blanche ou noire</strong> — Le blanc pour les nouveaux départs, le noir pour la protection et le lâcher prise.</p></div>
+          <div class="etape"><div class="etape-num">3</div><p><strong>Méditez 5 à 10 minutes</strong> — Centrez-vous, respirez profondément et connectez-vous à l'énergie de la nouvelle lune.</p></div>
+          <div class="etape"><div class="etape-num">4</div><p><strong>Écrivez vos intentions</strong> — Rédigez 3 à 5 intentions claires dans votre journal. Formulez-les au présent, comme si elles étaient déjà réalisées.</p></div>
+          <div class="etape"><div class="etape-num">5</div><p><strong>Lisez vos intentions à voix haute</strong> — Donnez de la puissance à vos mots en les prononçant avec conviction et émotion.</p></div>
+          <div class="etape"><div class="etape-num">6</div><p><strong>Tirez une carte de guidance</strong> — Une carte de tarot ou d'oracle pour recevoir un message sur l'énergie qui vous accompagnera ce cycle.</p></div>
+          <div class="etape"><div class="etape-num">7</div><p><strong>Remerciez</strong> — Exprimez votre gratitude à l'univers, aux guides ou à votre moi supérieur. Laissez la bougie se consumer en sécurité.</p></div>
+        </div>
+      </div>
+      <div class="materiel">
+        <h4>Ce dont vous avez besoin</h4>
+        <ul>
+          <li>🕯️ Bougie blanche ou noire</li>
+          <li>📓 Journal et stylo</li>
+          <li>🌿 Sauge ou palo santo</li>
+          <li>💎 Cristaux de votre choix</li>
+          <li>🔮 Jeu de tarot ou oracle</li>
+          <li>🌸 Fleurs ou plantes fraîches</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rituel Pleine Lune -->
+  <div class="rituel-block">
+    <div class="rituel-header">
+      <div class="rh-top"><span class="r-icon">🌕</span><h2>Rituel de <em>Pleine Lune</em></h2></div>
+      <p>La pleine lune est le moment le plus puissant du cycle lunaire. Idéal pour libérer, recharger et célébrer vos accomplissements.</p>
+    </div>
+    <div class="rituel-body">
+      <p>La pleine lune illumine ce qui était caché. C'est le moment des <strong>révélations, du lâcher prise et de la recharge énergétique maximale</strong>. L'énergie est à son apogée — tout est amplifié, aussi bien les émotions que les intentions. Utilisez cette puissance avec intention.</p>
+      <div class="etapes">
+        <h3>✦ Les étapes du rituel</h3>
+        <div class="etape-list">
+          <div class="etape"><div class="etape-num">1</div><p><strong>Bain de lune</strong> — Si possible, sortez et exposez-vous à la lumière de la pleine lune. Posez vos cristaux à l'extérieur pour les recharger.</p></div>
+          <div class="etape"><div class="etape-num">2</div><p><strong>Bain rituel</strong> — Prenez un bain avec du sel de mer, des huiles essentielles et des pétales de fleurs pour vous purifier énergétiquement.</p></div>
+          <div class="etape"><div class="etape-num">3</div><p><strong>Écrivez ce que vous souhaitez libérer</strong> — Notez sur un papier tout ce dont vous voulez vous défaire : peurs, rancœurs, habitudes, croyances limitantes.</p></div>
+          <div class="etape"><div class="etape-num">4</div><p><strong>Brûlez le papier en sécurité</strong> — Brûlez votre liste dans un bol ignifugé en visualisant ces énergies qui se transforment et se libèrent.</p></div>
+          <div class="etape"><div class="etape-num">5</div><p><strong>Célébrez</strong> — La pleine lune est aussi une fête. Buvez de l'eau de lune, mangez quelque chose de bon, dansez, riez. Honorez le chemin parcouru.</p></div>
+          <div class="etape"><div class="etape-num">6</div><p><strong>Gratitude</strong> — Listez 10 choses pour lesquelles vous êtes reconnaissant(e) ce cycle. La gratitude est la fréquence de l'abondance.</p></div>
+        </div>
+      </div>
+      <div class="materiel">
+        <h4>Ce dont vous avez besoin</h4>
+        <ul>
+          <li>🌕 Lumière de la pleine lune</li>
+          <li>🛁 Sel de mer pour le bain</li>
+          <li>🔥 Bol ignifugé pour brûler</li>
+          <li>📓 Journal et stylo</li>
+          <li>💎 Cristaux à recharger</li>
+          <li>🌹 Huiles essentielles</li>
+          <li>💧 Eau de lune (eau exposée à la lune)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rituel Magie Bougie -->
+  <div class="rituel-block">
+    <div class="rituel-header">
+      <div class="rh-top"><span class="r-icon">🕯️</span><h2>Magie des <em>Bougies</em></h2></div>
+      <p>La magie des bougies est l'une des pratiques les plus simples et les plus puissantes. Chaque couleur porte une intention spécifique.</p>
+    </div>
+    <div class="rituel-body">
+      <p>La bougie est un outil de <strong>concentration et d'amplification des intentions</strong>. Sa flamme représente la lumière qui transforme. En choisissant la bonne couleur et en chargeant votre bougie avec votre intention, vous créez un puissant outil de manifestation.</p>
+      <p><strong>Correspondances des couleurs :</strong></p>
+      <div class="etape-list" style="margin-bottom:1.5rem">
+        <div class="etape"><div class="etape-num" style="border-color:rgba(255,255,255,0.5)">⬜</div><p><strong>Blanche</strong> — Pureté, protection, nouveaux départs, connexion divine. Remplace toutes les autres couleurs.</p></div>
+        <div class="etape"><div class="etape-num" style="border-color:rgba(255,0,0,0.5)">🔴</div><p><strong>Rouge</strong> — Amour passionnel, énergie vitale, courage, force, désir.</p></div>
+        <div class="etape"><div class="etape-num" style="border-color:rgba(255,165,0,0.5)">🟠</div><p><strong>Orange</strong> — Créativité, confiance, succès, communication, abondance.</p></div>
+        <div class="etape"><div class="etape-num" style="border-color:rgba(255,215,0,0.5)">🟡</div><p><strong>Jaune</strong> — Clarté mentale, intuition, joie, optimisme, études.</p></div>
+        <div class="etape"><div class="etape-num" style="border-color:rgba(50,205,50,0.5)">🟢</div><p><strong>Verte</strong> — Abondance financière, guérison, fertilité, croissance, prospérité.</p></div>
+        <div class="etape"><div class="etape-num" style="border-color:rgba(0,0,255,0.5)">🔵</div><p><strong>Bleue</strong> — Paix, communication, vérité, protection, harmonie.</p></div>
+        <div class="etape"><div class="etape-num" style="border-color:rgba(128,0,128,0.5)">🟣</div><p><strong>Violette</strong> — Spiritualité, intuition, psychisme, méditation, sagesse.</p></div>
+        <div class="etape"><div class="etape-num" style="border-color:rgba(0,0,0,0.5)">⬛</div><p><strong>Noire</strong> — Protection, banissement des énergies négatives, lâcher prise.</p></div>
+        <div class="etape"><div class="etape-num" style="border-color:rgba(255,192,203,0.5)">🩷</div><p><strong>Rose</strong> — Amour doux, amitié, amour de soi, guérison du cœur, compassion.</p></div>
+      </div>
+      <div class="etapes">
+        <h3>✦ Comment charger une bougie</h3>
+        <div class="etape-list">
+          <div class="etape"><div class="etape-num">1</div><p>Tenez la bougie dans vos mains et visualisez votre intention avec précision.</p></div>
+          <div class="etape"><div class="etape-num">2</div><p>Gravez un symbole ou un mot sur la bougie avec une épingle (optionnel).</p></div>
+          <div class="etape"><div class="etape-num">3</div><p>Enduisez la bougie d'huile essentielle correspondante, du centre vers les extrémités.</p></div>
+          <div class="etape"><div class="etape-num">4</div><p>Allumez la bougie en répétant votre intention à voix haute 3 fois.</p></div>
+          <div class="etape"><div class="etape-num">5</div><p>Laissez brûler en sécurité — ne soufflez jamais une bougie rituelle, éteignez-la avec les doigts ou un éteignoir.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-pages">
+    <a href="chakras.html" class="nav-page-btn"><span class="arrow">←</span> Les 7 Chakras</a>
+    <a href="cristaux.html" class="nav-page-btn">Cristaux & Lithothérapie <span class="arrow">→</span></a>
+  </div>
+</div>
+<footer-mini>© 2026 Lumière Intérieure · Tous droits réservés 🌙</footer-mini>
+</body>
+</html>
