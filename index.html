@@ -353,8 +353,8 @@
       <div class="abonnement-box">
         <p>✉️ <strong>Recevez la carte du jour par email</strong> chaque matin directement dans votre boîte.<br>Un tirage + sa signification pour commencer la journée avec intention.</p>
         <div class="email-form">
-          <input type="email" placeholder="Votre adresse email…" />
-          <button type="button">S'abonner</button>
+          <input type="email" id="email-carte" placeholder="Votre adresse email…" />
+          <button type="button" id="btn-carte">S'abonner</button>
         </div>
       </div>
     </div>
@@ -639,8 +639,8 @@
     <h2>Rejoignez la <em>tribu</em> 🌙</h2>
     <p>Abonnez-vous pour recevoir la carte du jour, les rituels lunaires du mois, des ressources exclusives et des messages de guidance directement dans votre boîte mail.</p>
     <div class="nl-form">
-      <input type="email" placeholder="Votre adresse email…" />
-      <button type="button">Rejoindre</button>
+      <input type="email" id="email-newsletter" placeholder="Votre adresse email…" />
+      <button type="button" id="btn-newsletter">Rejoindre</button>
     </div>
     <p class="nl-rgpd">En vous inscrivant, vous acceptez de recevoir nos emails spirituels. Désabonnement possible à tout moment. Conformément au RGPD.</p>
   </div>
@@ -714,7 +714,73 @@
 </div>
 
 <script>
-// Étoiles
+// ===== HUBSPOT =====
+const HS_PORTAL_ID = "148546338";
+const HS_FORM_ID   = "08c270e6-dd0e-4182-8e8b-cd3fd8c4f748";
+
+async function abonnerHubSpot(email) {
+  try {
+    const res = await fetch(
+      `https://api.hsforms.com/submissions/v3/integration/submit/${HS_PORTAL_ID}/${HS_FORM_ID}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fields: [{ name: "email", value: email }],
+          context: { pageUri: window.location.href }
+        })
+      }
+    );
+    return res.ok;
+  } catch(e) {
+    return false;
+  }
+}
+
+function gererInscription(inputId, btnId, labelBtnOriginal) {
+  const input = document.getElementById(inputId);
+  const btn   = document.getElementById(btnId);
+  if (!input || !btn) return;
+
+  btn.addEventListener('click', async function() {
+    const email = input.value.trim();
+    if (!email || !email.includes('@')) {
+      input.style.borderColor = '#C94A4A';
+      setTimeout(() => input.style.borderColor = '', 2000);
+      return;
+    }
+
+    btn.textContent = '...';
+    btn.disabled = true;
+
+    const ok = await abonnerHubSpot(email);
+
+    if (ok) {
+      btn.textContent = '✓ Merci !';
+      btn.style.background = '#4A9E5C';
+      input.value = '';
+      setTimeout(() => {
+        btn.textContent = labelBtnOriginal;
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 3000);
+    } else {
+      btn.textContent = 'Erreur — réessayer';
+      btn.style.background = '#C94A4A';
+      setTimeout(() => {
+        btn.textContent = labelBtnOriginal;
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 3000);
+    }
+  });
+}
+
+// Branchement sur les deux formulaires
+gererInscription('email-carte',      'btn-carte',      "S'abonner");
+gererInscription('email-newsletter', 'btn-newsletter', 'Rejoindre');
+
+// ===== ÉTOILES =====
 (function(){
   const container = document.getElementById('stars');
   for(let i=0; i<120; i++){
@@ -733,18 +799,18 @@
   }
 })();
 
-// Hamburger
+// ===== HAMBURGER =====
 const ham = document.getElementById('hamburger');
-const nav = document.getElementById('navLinks');
-ham.addEventListener('click', () => nav.classList.toggle('open'));
+const navEl = document.getElementById('navLinks');
+ham.addEventListener('click', () => navEl.classList.toggle('open'));
 
-// Fade-in on scroll
+// ===== FADE-IN =====
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// Cartes du tarot - animation au clic
+// ===== CARTES TAROT =====
 document.querySelectorAll('.card-frame').forEach(card => {
   const cards = [
     { symbol: '🌟', name: "L'Étoile", num: 'XVII · Arcane Majeur' },
@@ -764,25 +830,6 @@ document.querySelectorAll('.card-frame').forEach(card => {
   });
 });
 
-// Newsletter & formulaires
-document.querySelectorAll('button').forEach(btn => {
-  btn.addEventListener('click', function(){
-    const input = this.previousElementSibling || this.parentElement.querySelector('input');
-    if(input && input.value && input.value.includes('@')){
-      this.textContent = '✓ Merci !';
-      this.style.background = '#4A9E5C';
-      input.value = '';
-      setTimeout(() => {
-        this.textContent = this.textContent.includes('abonner') ? 'S\'abonner' : 'Rejoindre';
-        this.style.background = '';
-      }, 3000);
-    } else if(input) {
-      input.style.borderColor = '#C94A4A';
-      setTimeout(() => input.style.borderColor = '', 2000);
-    }
-  });
-});
-
 // ===== RGPD =====
 function accepterCookies(){
   localStorage.setItem('rgpd','accepted');
@@ -792,26 +839,25 @@ function refuserCookies(){
   localStorage.setItem('rgpd','refused');
   document.getElementById('rgpd-banner').style.display='none';
 }
-// Afficher la bannière si pas encore de choix
 if(!localStorage.getItem('rgpd')){
   document.getElementById('rgpd-banner').style.display='flex';
 }
 
-// Mise à jour date carte du jour
+// ===== DATE CARTE DU JOUR =====
 const today = new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
 const dateTag = document.querySelector('.date-tag');
 if(dateTag) dateTag.textContent = `✦ Carte du jour · ${today}`;
 
-// Mise à jour phase lunaire
+// ===== PHASE LUNAIRE =====
 const phases = [
-  { icon: '🌑', name: 'Nouvelle Lune', desc: 'Période idéale pour planter vos intentions, commencer un nouveau projet et vous tourner vers l\'intérieur.' },
-  { icon: '🌒', name: 'Premier Croissant', desc: 'L\'énergie monte. Mettez vos projets en action, osez agir selon vos intentions.' },
-  { icon: '🌓', name: 'Premier Quartier', desc: 'Surmontez les obstacles. C\'est le moment de persévérer et d\'ajuster votre cap.' },
-  { icon: '🌔', name: 'Lune Gibbeuse', desc: 'Affinez et peaufinez. L\'abondance approche, restez dans votre élan créatif.' },
-  { icon: '🌕', name: 'Pleine Lune', desc: 'Période idéale pour les tirages de clarification, les rituels de gratitude et la recharge de vos cristaux.' },
-  { icon: '🌖', name: 'Lune Décroissante', desc: 'Moment de lâcher prise, de gratitude et de libération de ce qui ne vous sert plus.' },
-  { icon: '🌗', name: 'Dernier Quartier', desc: 'Faites le bilan, pardonnez et libérez. La transformation est en cours.' },
-  { icon: '🌘', name: 'Lune Balsamic', desc: 'Reposez-vous, méditez et préparez-vous pour un nouveau cycle lunaire.' },
+  { icon: '🌑', name: 'Nouvelle Lune', desc: "Période idéale pour planter vos intentions, commencer un nouveau projet et vous tourner vers l'intérieur." },
+  { icon: '🌒', name: 'Premier Croissant', desc: "L'énergie monte. Mettez vos projets en action, osez agir selon vos intentions." },
+  { icon: '🌓', name: 'Premier Quartier', desc: "Surmontez les obstacles. C'est le moment de persévérer et d'ajuster votre cap." },
+  { icon: '🌔', name: 'Lune Gibbeuse', desc: "Affinez et peaufinez. L'abondance approche, restez dans votre élan créatif." },
+  { icon: '🌕', name: 'Pleine Lune', desc: "Période idéale pour les tirages de clarification, les rituels de gratitude et la recharge de vos cristaux." },
+  { icon: '🌖', name: 'Lune Décroissante', desc: "Moment de lâcher prise, de gratitude et de libération de ce qui ne vous sert plus." },
+  { icon: '🌗', name: 'Dernier Quartier', desc: "Faites le bilan, pardonnez et libérez. La transformation est en cours." },
+  { icon: '🌘', name: 'Lune Balsamic', desc: "Reposez-vous, méditez et préparez-vous pour un nouveau cycle lunaire." },
 ];
 const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(),0,0)) / 86400000);
 const phase = phases[dayOfYear % 8];
@@ -824,6 +870,3 @@ if(mp){
 </script>
 </body>
 </html>
-
-
-
