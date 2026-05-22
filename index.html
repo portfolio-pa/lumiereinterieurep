@@ -714,24 +714,25 @@
 </div>
 
 <script>
-// ===== HUBSPOT =====
-const HS_PORTAL_ID = "148546338";
-const HS_FORM_ID   = "08c270e6-dd0e-4182-8e8b-cd3fd8c4f748";
+// ===== BREVO =====
+const BREVO_API_KEY = "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";
+const BREVO_LIST_ID = 2;
 
 async function abonnerHubSpot(email) {
   try {
-    const res = await fetch(
-      `https://api.hsforms.com/submissions/v3/integration/submit/${HS_PORTAL_ID}/${HS_FORM_ID}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          fields: [{ name: "email", value: email }],
-          context: { pageUri: window.location.href }
-        })
-      }
-    );
-    return res.ok;
+    const res = await fetch("https://api.brevo.com/v3/contacts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "api-key": BREVO_API_KEY
+      },
+      body: JSON.stringify({
+        email: email,
+        listIds: [BREVO_LIST_ID],
+        updateEnabled: true
+      })
+    });
+    return res.ok || res.status === 204;
   } catch(e) {
     return false;
   }
